@@ -62,16 +62,13 @@ function calcular(){
     if (salarioBruto<1500000){
         salarioBruto+=salarioBruto
         auxilio=400000;
-        eps=salarioBruto*0.04;
-        pension=salarioBruto*0.04;
         salarioTotal=salarioBruto+auxilio+bonificacion-eps-pension
     }else{
-        salarioBruto;
-        eps=salarioBruto*0.04;
-        pension=salarioBruto*0.04;
         salarioTotal=salarioBruto+bonificacion-eps-pension
         auxilio=0;
     }
+    eps=salarioBruto*0.04;
+    pension=salarioBruto*0.04;
     const usuario = new Array;
     usuario.push(cedula,nombre,categoria,salarioBruto,auxilio,bonificacion,eps,pension,salarioTotal);
     datos.push(usuario);
@@ -79,8 +76,8 @@ function calcular(){
     document.getElementById("tabla").innerHTML= cont;  
     let nombreMayor="";
     let nombreMenor="";
-    let mayorS= 0;
-    let menorS= 0;
+    let mayorS= -Infinity;
+    let menorS= Infinity;
     let sumaS=0;
     datos.forEach(subarray =>{
         if(subarray[8]>mayorS){
@@ -94,7 +91,7 @@ function calcular(){
         sumaS+= subarray[8]; 
     });
     promedioSueldos=sumaS/datos.length;
-    cont2 =`<tr><td>${datos.length}</td><td>${nombreMenor}"\t\t"${menorS}</td><td>${promedioSueldos}</td><td>${nombreMayor}"\t\t"${mayorS}</td><td>${sumaS}</td></tr>`;
+    cont2 =`<tr><td>${datos.length}</td><td>${nombreMenor}=${menorS}</td><td>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COL' }).format(promedioSueldos)}</td><td>${nombreMayor}=${mayorS}</td><td>${sumaS}</td></tr>`;
     document.getElementById("tabla2").innerHTML= cont2;
 }
 const datos = new Array;
