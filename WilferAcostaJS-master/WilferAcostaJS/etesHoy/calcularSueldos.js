@@ -17,42 +17,34 @@ function calcular(){
             salarioBruto+= 1160000;
             bonificacion+=100000;
             break;
-
         case "Auxiliar B":
             salarioBruto+= 1200000;
             bonificacion+=100000;
             break;
-
         case "Técnico A":
             salarioBruto+=1500000;
             bonificacion+=150000;
             break;
-
         case "Técnico B":
             salarioBruto+=2000000;
             bonificacion+=15000;
             break;
-
         case "Profesional A":
             salarioBruto+=2500000;
             bonificacion+=200000;
             break;
-
         case "Profesional B":
             salarioBruto+=3000000;
             bonificacion+=250000;
             break;
-
         case "Director A":
             salarioBruto+=4000000;
             bonificacion+=500000;
             break;
-
         case "Director B":
             salarioBruto+=4500000;
             bonificacion+=1000000;
             break;
-
         case "Gerente Departamento":
             salarioBruto+=6000000;
             bonificacion+=2000000;
