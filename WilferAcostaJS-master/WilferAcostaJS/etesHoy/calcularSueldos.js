@@ -82,20 +82,20 @@ function calcular(){
     let mayorS= 0;
     let menorS= 0;
     let sumaS=0;
-     datos.forEach(subarray =>{
-         if(subarray[8]>mayorS){
-             nombreMayor = subarray[1];
-             mayorS=subarray[8];
-         } 
-         if(subarray[8] < menorS){
-             nombreMenor=subarray[1];
-             menorS=subarray[8];
-         }
-         sumaS+= subarray[8]; 
-     });
-     promedioSueldos=sumaS/datos.length;
-     cont2 =`<tr><td>${datos.length}</td><td>${nombreMenor}"\t\t"${menorS}</td><td>${promedioSueldos}</td><td>${nombreMayor}"\t\t"${mayorS}</td><td>${sumaS}</td></tr>`;
-     document.getElementById("tabla2").innerHTML= cont2;
+    datos.forEach(subarray =>{
+        if(subarray[8]>mayorS){
+            nombreMayor = subarray[1];
+            mayorS=subarray[8];
+        } 
+        if(subarray[8] < menorS){
+            nombreMenor=subarray[1];
+            menorS=subarray[8];
+        }
+        sumaS+= subarray[8]; 
+    });
+    promedioSueldos=sumaS/datos.length;
+    cont2 =`<tr><td>${datos.length}</td><td>${nombreMenor}"\t\t"${menorS}</td><td>${promedioSueldos}</td><td>${nombreMayor}"\t\t"${mayorS}</td><td>${sumaS}</td></tr>`;
+    document.getElementById("tabla2").innerHTML= cont2;
 }
 const datos = new Array;
 const sueldoTnombre= new Array;
