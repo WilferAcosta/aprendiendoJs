@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numeroAleatorio = Math.floor(Math.random() * 1000);
+        let veces= 0;
+        console.log(numeroAleatorio);
+        let valor = Number(prompt("Ingrese el numero para ver si es correcto"));
+        while (valor > 0) {
+            if (valor < numeroAleatorio) {
+                alert("el numero esta por debajo del numero");
+            } else if (valor > numeroAleatorio) {
+                alert("el numero esta por encima del numero");  
+            } else {
+                alert(`felicitaciones haz adivinado el numero que es ${numeroAleatorio} en ${veces} intentos.`);
+                break;
+            }
+            valor = Number(prompt("Ingrese el numero para ver si es correcto"));
+            veces++;
+        }
+    </script>
+</body>
+
+</html>

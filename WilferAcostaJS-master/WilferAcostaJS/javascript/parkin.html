@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- //Un garaje de estacionamiento cobra una tarifa mínima de $ 2.00 para
+    estacionar por hasta tres horas. El garaje cobra $0.50 adicionales por hora
+    por cada hora o parte de la misma en exceso de tres horas. El cargo máximo
+    por cualquier período de 24 horas es de $10.00. Suponga que ningún automóvil
+    estaciona por más de 24 horas seguidas. Escriba una aplicación que calcule y
+    muestre los cargos de estacionamiento para cada cliente que estacionó en el
+    garaje ayer. Debe introducir las horas de estacionamiento de cada cliente.
+    El programa debe mostrar el cargo para el cliente actual y debe calcular y
+    mostrar el total acumulado de los recibos de ayer. Debe utilizar el método
+    de cálculo de cargos para determinar el cargo de cada cliente. -->
+    <script>
+        function calcularTotal(hora){
+            if (hora <= 3){
+                total=2.00;
+                totalcancelar=total;    
+            }else if(hora > 3 && hora < 24){
+                total=(hora-3)*0.50;
+                totalcancelar=total+2;
+            }else if(hora === 24){
+                totalcancelar=10;
+                
+            }else {
+                alert(`las horas no ese correcta o sale del parametro de 24 horas vuelva a ingresar`);
+            }
+            return totalcancelar
+        }
+        let placa=prompt(`..Digite la placa del Automovil..`);
+        let cont= 0;
+        let totalcancelar=0;
+        let cantidad=0
+        while(placa != "fin"){
+            let hora=Number(prompt(`..Digite las horas que duro en el parqueadero..`));
+            calcularTotal(hora);
+            cont+=totalcancelar;
+            cantidad++
+            alert(`El total de horas parqueadas fue de ${hora} horas.\nEl total a cancelar es de $ ${totalcancelar}.`);
+            placa=prompt(`..Digite la placa del Automovil..`);
+        }
+        alert(`El valor total del dia de ayer fue de $ ${cont}.`);
+    </script>
+  </body>
+</html>

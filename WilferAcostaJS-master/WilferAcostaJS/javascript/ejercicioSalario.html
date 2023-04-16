@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      body {
+        background-color: rgb(148, 148, 148);
+        color: white;
+        border: 1px;
+      }
+      table thead {
+        background-color: rgb(16, 33, 68);
+        color: white;
+        border: 1px;
+      }
+      td {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container-fluid">
+        <div class="row">
+          <nav>
+            <h1>calcular el salario de los empleados</h1>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <table class="Tablac table-bordered table-striped">
+          <thead>
+            <th>CEDULA</th>
+            <th>NOMBRE</th>
+            <th>HORA TRABAJADAS</th>
+            <th>VALOR HORA</th>
+            <th>SALARIO BRUTO</th>
+            <th>EPS</th>
+            <th>PENSION</th>
+            <th>AUX TRANSPORTER</th>
+            <th>SAlARIO NETO</th>
+          </thead>
+          <tbody id="datos"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      function calcularSalarioBruto(horasTra,valorHora){
+        salarioBruto = horasTra * valorHora;
+        return salarioBruto;
+      }
+      function calcularEPS(salarioBruto) {
+        descuEps = salarioBruto * 0.04;
+        return descuEps;
+      }
+      function calcularPEN(salarioBruto) {
+        descuPEN = salarioBruto * 0.04;
+        return descuPEN;
+      }
+      function calcularAuxTrans(salarioBruto,salarioMinimo,auxitrans) {
+        if (salarioBruto < salarioMinimo) {
+          auxTrans=auxitrans;
+        } else {
+          auxTrans = 0;
+        }
+        return auxTrans;
+      }
+      function calcularSalNeto(salarioBruto, auxitrans, descuEps, descuPEN) {
+        salario = salarioBruto - descuEps - descuPEN + auxitrans;
+        return salario;
+      }
+      body = "";
+      let cedula = Number(prompt("...Ingrese la cedula del empleado...\n"));
+      while (cedula !== 0) {
+        let nombre = String(prompt("...Digite el nombre del empleado...\n"));
+        let horasTra = Number(prompt("...Ingrese las horas trabajadas por el empleado...\n"));
+        const salarioMinimo = 1160000;
+        const valorHora = 4833;
+        let auxitrans = 140600;
+        calcularSalarioBruto(horasTra,valorHora);
+        calcularEPS(salarioBruto);
+        calcularPEN(salarioBruto);
+        calcularAuxTrans(salarioBruto,salarioMinimo,auxitrans);
+        calcularSalNeto(salarioBruto,auxitrans,descuEps,descuPEN);
+        body += `<tr><td>${cedula}</td><td>${nombre}</td><td>${horasTra}</td><td>${valorHora}</td><td>${Math.round(salarioBruto)}</td><td>${descuEps}</td><td>${descuPEN}</td><td>${auxTrans}</td><td>${salario}</td></tr>`;
+        document.getElementById("datos").innerHTML = body;
+        cedula = Number(prompt("...Ingrese la cedula del empleado...\n"));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script> 
+      const numPerfecto = function(numero){
+        let sum=0;
+        for(let i=0 ; i< numero;i++){
+          if(numero % i === 0){
+            sum+=i;
+          }
+        }
+        return sum === numero;
+      }
+      const resultado=function(){
+        for(let i=1; i<= 1000;i++){
+          if(numPerfecto(i)){
+            alert(`el numero ${i} es perfecto`);
+            for(let j=1;j<i;j++){
+              if(i % j === 0){
+                alert(j);
+              }
+            }
+          }
+        }
+      }
+
+      numPerfecto();
+    </script>
+  </body>
+</html>
+<!-- let numero = Number(prompt(`..Ingrese un numero..`));
+      let cont = 0;
+      for(let i=0 ;i < numero ; i++){
+        if(numero % i == 0){
+            cont+=i
+        }
+      }
+      if (numero == cont) {
+        alert("el numero es perfecto..");
+      }else {
+      alert("el numero no es perfecto")
+    } -->

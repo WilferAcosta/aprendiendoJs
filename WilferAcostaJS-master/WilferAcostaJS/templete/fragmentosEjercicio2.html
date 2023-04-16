@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templete</title>
+</head>
+<body>
+    <!-- <li class="list" id="lista-dinamica"><b>nombre: </b><span class="text-danger">Descripcion...</span></li> -->
+    <ul id="lista-dinamica"></ul>
+
+
+
+    <script>
+        const lista = document.getElementById("lista-dinamica");
+        const arrayItem =["item1","item2","item3"];
+        const fragment = document.createDocumentFragment();
+        arrayItem.forEach((item)=>{
+            //creamos li
+            const li = document.createElement("li");
+            //agregamos clase a li
+            li.classList.add("list");
+            //creamos b
+            const b= document.createElement("b");
+            //agregamos texto a b
+            b.textContent = "Nombre: ";
+            //creamos span
+            const span = document.createElement("span");
+            //agregamos clase a sapn
+            span.classList.add("text-danger");
+            ///agregamos textohijo a li
+            span.textContent = item;
+            //agregamos nodo hijo a li
+            li.appendChild(b);
+            li.appendChild(span);
+            fragment.appendChild(li);
+        });
+        lista.appendChild(fragment);
+    </script>
+</body>
+</html>
