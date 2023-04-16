@@ -1,3 +1,8 @@
+const datos = new Array;
+const sueldoTnombre= new Array;
+let cont ="";
+let cont2="";
+
 function calcular(){
     let cedula=document.getElementById("cedula").value;
     let nombre=document.getElementById("nombre").value;
@@ -94,9 +99,3 @@ function calcular(){
     cont2 =`<tr><td>${datos.length}</td><td>${nombreMenor}=${menorS}</td><td>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COL' }).format(promedioSueldos)}</td><td>${nombreMayor}=${mayorS}</td><td>${sumaS}</td></tr>`;
     document.getElementById("tabla2").innerHTML= cont2;
 }
-const datos = new Array;
-const sueldoTnombre= new Array;
-let cont ="";
-let cont2="";
-
-
