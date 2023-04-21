@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacion/css/bootstrap.min.css"/>
+    <style>
+        body {
+            background-color: black;
+            color: rgb(250, 226, 6);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Libreria DE Campus</h1>
+        <br>
+        <form action="" name="libro">
+            <div class="row">
+                <div class="col">
+                    <label for="fechaToma">Fecha pactada de entrega</label>
+                    <input type="datetime-local" id="fechaToma" name="fechaToma">
+                </div>
+                <div class="col">
+                    <label for="fechaEntrega">Fecha de entrega del libro</label>
+                    <input type="datetime-local" id="fechaEntrega" name="fechaEntrega">
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-warning" onclick="fechaActual()">calcular deuda</button>
+        </form>
+        <br>
+        <h1>Deuda a pagar</h1>
+        <p id="deuda"></p>
+
+
+    </div>
+    <script src="/WilferAcostaJS-master/fechaDeJavaScript/libreriaMulta.js"></script>
+    <script src="/WilferAcostaJS-master/WilferAcostaJS/instalacion/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
