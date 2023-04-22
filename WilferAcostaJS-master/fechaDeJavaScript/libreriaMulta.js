@@ -2,9 +2,7 @@ str=""
 function fechaActual(){
 const fechaIni = new Date(document.getElementById("fechaToma").value);
 const fechaEntr = new Date(document.getElementById("fechaEntrega").value);
-console.log(fechaIni.toString(),fechaEntr.toString());
 diff = fechaEntr.getDate() - fechaIni.getDate();
-console.log(diff)
 if(diff > 0 && diff <= 3){
     multa = diff*7000;
     str= `tiene un retraso de ${diff} dias y su multa es de $${multa}.`;
