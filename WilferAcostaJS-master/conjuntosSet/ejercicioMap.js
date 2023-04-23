@@ -15,6 +15,7 @@ console.log(miDiccionario.size);//devuelve la cantida de elementos en el diccion
 miDiccionario.forEach(function(v,k){
     console.log("llave: ",k," su edad es ",v);
 });
+console.log("=".repeat(40));
 for (let k  of miDiccionario.keys()){
     console.log("llave",k,"la edad es ",miDiccionario.get(k));
 }
