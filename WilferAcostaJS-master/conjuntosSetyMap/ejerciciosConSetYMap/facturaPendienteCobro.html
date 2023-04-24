@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>GUARDAR FACTURAS</h1>
+            <form action="factuas">
+                <div class="col">
+                    <table class="table table-success table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label for="factur">Numero de Factura: </label>
+                                </th>
+                                <th><label for="valorFactura">Valor de Factura</label>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="number" name="factura" id="numFactura" class="form-control"
+                                        placeholder="123456" aria-label="Username" aria-describedby="addon-wrapping">
+                                </td>
+                                <td><input type="number" name="valorFactura" id="valorFactura" class="form-control"
+                                        placeholder="10000" aria-label="Username" aria-describedby="addon-wrapping">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-outline-success" onclick="agarFactura()">AGREGAR</button>
+                    <button type="button" class="btn btn-outline-success" onclick="pagaFactura()">CANCELAR</button>
+                </div>
+            </form>
+            <div class="col">
+                <table class="table table-success table-striped">
+                    <thead>
+                    <tr>
+                        <th>Numero factura</th>
+                        <th>Valor factura</th>
+                    </tr>
+                </thead>
+                <tbody id="impFacturas">
+                    
+                </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="./facturaPendienteCobro.js"></script>
+    <script src="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
