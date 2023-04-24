@@ -8,7 +8,6 @@ function agarFactura() {
     Facturas.set(numFactura, valorFactura);
     document.getElementById("impFacturas").innerHTML = cont;
 }
-
 function pagaFactura(){
     console.log(Facturas);
     let valortotal=0;
@@ -18,13 +17,18 @@ function pagaFactura(){
         valortotal=Facturas.get(nfactura) - vfactura;
         if(valortotal === 0) {
             Facturas.delete(nfactura);
+            cont = "";
+            Facturas.forEach( k,v =>{
+                cont += `<tr><td>${k}</td><td>${v}</td></tr>`;
+                document.getElementById("impFacturas").innerHTML = cont;
+            })
         }
         Facturas.set(nfactura,valortotal);
-        // Actualizar el HTML
         cont = "";
-        for (const [key, value] of Facturas) {
-            cont += `<tr><td>${key}</td><td>${value}</td></tr>`;
+        for (const [k, v] of Facturas) {
+            cont += `<tr><td>${k}</td><td>${v}</td></tr>`;
         }
     }   
 document.getElementById("impFacturas").innerHTML = cont;
+
 }
