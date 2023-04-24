@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calcular Valor De Los Utiliz</h1>
+        <div class="row">
+            <form action="compras">
+                <div class="col">
+                    <div class="form-group">
+                        <select class="form-control" id="articulo">
+                            <option value="1">Lapiz</option>
+                            <option value="2">Cuaderno</option>
+                            <option value="3">Borrador</option>
+                            <option value="4">Calculadora</option>
+                            <option value="5">Escuadra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-secondary" onclick="calcular()">Calcular Factura</button>
+            </form>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                    <tr><th>Articulo</th>
+                    <th>Valor c/u</th>
+                    <th>Cantidad</th>
+                    <th>Total Pagar</th></tr>
+                </thead>
+                <tbody id="tabla">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./ejercicioFacturaUtilies.js"></script>
+</body>
+
+</html>
