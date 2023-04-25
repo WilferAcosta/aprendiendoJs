@@ -8,27 +8,25 @@ function agarFactura() {
     Facturas.set(numFactura, valorFactura);
     document.getElementById("impFacturas").innerHTML = cont;
 }
-function pagaFactura(){
+function pagaFactura() {
     console.log(Facturas);
-    let valortotal=0;
-    const nfactura= Number(document.getElementById("numFactura").value);
-    const vfactura= Number(document.getElementById("valorFactura").value);
-    if(Facturas.has(nfactura)) {
-        valortotal=Facturas.get(nfactura) - vfactura;
-        if(valortotal === 0) {
+    let valortotal = 0;
+    const nfactura = Number(document.getElementById("numFactura").value);
+    const vfactura = Number(document.getElementById("valorFactura").value);
+    if (Facturas.has(nfactura)) {
+        valortotal = Facturas.get(nfactura) - vfactura;
+        if (valortotal === 0) {
             Facturas.delete(nfactura);
-            cont = "";
-            Facturas.forEach( k,v =>{
-                cont += `<tr><td>${k}</td><td>${v}</td></tr>`;
-                document.getElementById("impFacturas").innerHTML = cont;
-            })
+            //document.getElementById("impFacturas").innerHTML = cont;
+        } else {
+            Facturas.set(nfactura, valortotal); 
         }
-        Facturas.set(nfactura,valortotal);
         cont = "";
         for (const [k, v] of Facturas) {
             cont += `<tr><td>${k}</td><td>${v}</td></tr>`;
         }
-    }   
-document.getElementById("impFacturas").innerHTML = cont;
+        document.getElementById("impFacturas").innerHTML = cont;
+    }
+    
 
 }

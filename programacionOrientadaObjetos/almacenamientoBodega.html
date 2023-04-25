@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Bodega De Campus</h1>
+            <div class="col">
+                <form action="bodega">
+                    <div>
+                        <label for="precioCompara">Codigo</label>
+                        <input type="number" id="codigo">
+                    </div>
+                    <div>
+                        <label for="precioCompara">Precio De Compra</label>
+                        <input type="number" id="precio">
+                    </div>
+                    <div>
+                        <label for="cantidaBodega">Cantida En Bodega</label>
+                        <input type="number" id="cantidad">
+                    </div>
+                    <div>
+                        <label for="minimoBodega">Minimo En Bodega</label>
+                        <input type="number" id="mini">
+                    </div>
+                    <button type="button" class="btn btn-outline-secondary" onclick="almacenar()">Calcular
+                        Factura</button>
+                </form>
+                <div id="tarjeta">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./almacenamientoBodega.js"></script>
+</body>
+
+</html>

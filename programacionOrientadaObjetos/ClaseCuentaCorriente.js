@@ -32,3 +32,6 @@ console.log(ctaCorrB.ConsultarSaldo());
 ctaCorrB.depositar(3_350_000);
 ctaCorrB.girar(200_000);
 console.log(ctaCorrB.ConsultarSaldo());
+
+console.log(ctaCorrB.saldo);
+ctaCorrB.fechaCreacion = new Date("2000/01/01");

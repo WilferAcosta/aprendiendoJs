@@ -42,3 +42,5 @@ console.log(CuentaCorrienteB.ConsultarSaldo());
 console.log(CuentaCorrienteB.depositar(3_350_000));
 console.log(CuentaCorrienteB.girar(200_000));
 console.log(CuentaCorrienteB.ConsultarSaldo());
+
+console.log(CuentaCorrienteB.saldo);
