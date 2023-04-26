@@ -37,46 +37,47 @@ class bodega {
             return false;
         }
     };
+    menorProducto(){
+        const min = 0;
+    const menor = productos.reduce((accumulator, currentValue) => accumulator + currentValue,initialValue);
+    }
 }
 const productos = [];
 tarjeta = "";
+console.log(productos);
 function almacenar() {
     codigo1 = document.getElementById("codigo").value;
     precio1 = document.getElementById("precio").value;
     cantida1 = document.getElementById("cantidad").value;
     cantidadmini1 = document.getElementById("mini").value;
     const producto = new bodega(codigo1, precio1, cantida1, cantidadmini1);
-    productos.push(codigo1, precio1, cantida1, cantidadmini1);
+    productos.push({
+        codigo: codigo1,
+        precio1: precio1,
+        cantida1: cantida1,
+        cantidadmini1: cantidadmini1
+    });
     fecha = new Date();
-
+    producto.menorProducto();
     //crear tarjeta con datos de producto
 
-
     if (producto.solicitudPedido()) {
-        tarjeta += `<div class="card text-center" style="background-color: rgb(226, 109, 109)">
-        <div class="card-header">
-        Bodega Campus..
-        </div>
+        tarjeta += `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
+        <div class="card-header">Codigo del Producto: ${codigo1}</div>
         <div class="card-body">
-        <h5 class="card-title">codigo del producto # ${codigo1}</h5>
-        <p class="card-text">tiene ${cantida1} popquito stock Contacta tu Provedor!!</p>
+        <h5 class="card-title">tiene $${cantida1} buena cantidad !!.</h5>
+        <p class="card-text">${fecha}</p>
         </div>
-        <div class="card-footer text-muted">
-        ${fecha}
-        </div></div>`;
+    </div>`;
         document.getElementById("tarjeta").innerHTML = tarjeta;
     } else {
-        tarjeta += `<div class="card text-center" style="background-color: green">
-        <div class="card-header">
-        Bodega Campus..
-        </div>
+        tarjeta += `<div class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
+        <div class="card-header">Codigo del Producto: ${codigo1}</div>
         <div class="card-body">
-        <h5 class="card-title">codigo del producto # ${codigo1}</h5>
-        <p class="card-text">tiene ${cantida1} buena cantidad !!</p>
+        <h5 class="card-title">tiene $${cantida1} buena cantidad !!.</h5>
+        <p class="card-text">${fecha}</p>
         </div>
-        <div class="card-footer text-muted">
-        ${fecha}
-        </div></div>`;
+    </div>`;
         document.getElementById("tarjeta").innerHTML = tarjeta;
     }
 

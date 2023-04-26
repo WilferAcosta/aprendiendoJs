@@ -1,8 +1,10 @@
 class Cuentacorriente {//nombre de la clase siempre la primera en mayuscula calmecase
+    static cantidad = 0;
     constructor(numero, nombre, saldo) {//constrictor se le pasa lo atributos de lo que vamos a recibir 
         this.numero = numero;
-        this.console.log(calcularA.paroimpar());nombre = nombre;
+        this.nombre = nombre;
         this.saldo = saldo;
+        ++Cuentacorriente.cantidad;
     }
     //declaramos metodos
     depositar(monto) {
@@ -17,6 +19,9 @@ class Cuentacorriente {//nombre de la clase siempre la primera en mayuscula calm
     };
     ConsultarSaldo() {
         return this.saldo;
+    }
+    static nombreBanco(){
+        return "Campus Bank";
     }
 }
 //crear instancias 
@@ -35,3 +40,5 @@ console.log(ctaCorrB.ConsultarSaldo());
 
 console.log(ctaCorrB.saldo);
 ctaCorrB.fechaCreacion = new Date("2000/01/01");
+console.log(Cuentacorriente.cantidad);
+console.log(Cuentacorriente.nombreBanco());
