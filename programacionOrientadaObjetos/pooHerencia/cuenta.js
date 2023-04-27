@@ -1,82 +1,159 @@
-class Cuenta {//nombre de la clase siempre la primera en mayuscula calmecase
+class Cuenta {
     static cantidad = 0;
-    constructor(numero, nombre, saldo) {//constrictor se le pasa lo atributos de lo que vamos a recibir 
-        this._numero = numero;
-        this._nombre = nombre;
-        this._saldo = saldo;
-        ++Cuenta.cantidad;
+    constructor(numero,saldo=0,Persona) {
+    this._numero = numero;
+    this._Persona = Persona;
+    this._saldo = saldo;
+    ++Cuenta.cantidad
     }
     set numero(nuevoNumero){
-        this._numero = nuevoNumero;
+    this._numero = nuevoNumero;
     }
     get numero(){
-        return this._numero;
+    return this._numero;
     }
-    set nombre(nuevoNombre){
-        this._nombre = nuevoNombre;
+    set Persona(nuevoPersona){
+    this._nombre = nuevoPersona;
     }
-    get nombre(){
-        return this._nombre;
+    get Persona(){
+    return this._Persona;
     }
     set saldo(nuevoSaldo){
-        this._saldo = nuevoSaldo;
+    this._saldo = nuevoSaldo;
     }
     get saldo(){
-        return this._saldo;
+    console.log("GET saldo");
+    return this._saldo;
     }
-    //metodos
-    depositar(monto) {
-        this._saldo += monto;
-    };
-    girar(monto) {
-        if (this._saldo >= monto)
-            this.saldo -= monto;
-        else return false;
-        
-    };
-    ConsultarSaldo() {
-        return this._saldo;
+    depositar(monto){
+    this._saldo += monto;
     }
-    static nombreBanco(){
-        return "Campus Bank";
+    girar(monto){
+    if (this._saldo>=monto) this.saldo -= monto;
+    else return false;
     }
-}
-class CuentaAhorro extends Cuenta{
-
-}
-
-let ctAh1 =new CuentaAhorro(789,"wilfer",50000);
-ctAh1.depositar(1_200_000);
-console.log(ctAh1.ConsultarSaldo());
-console.log(CuentaAhorro.cantidad);
-
-class CuentaCorriente extends Cuenta{
+    consultarSaldo (){
+    return this.saldo;
+    }
+    
+    static nombrebanco (){
+    return "Campus bank";
+    }
+    }
+    
+    //heredar
+    class CuentaAhorro extends Cuenta {
+    
+    }
+    class CuentaCorriente extends Cuenta {
     static cantidad = 0;
-    constructor(numero,nombre,saldo,topeCredito){
-        super(numero,nombre,saldo);
-        this._topeCredito = topeCredito;
-        if(this._topeCredito === undefined){
-            this.topeCredito = 0;
-        }
-        ++CuentaCorriente.cantidad;
+    constructor (numero,saldo=0,Persona,topeCredito){
+    super(numero, Persona, saldo);
+    this._topeCredito = topeCredito;
+    if (this._topeCredito === undefined ){
+    this._topeCredito = 0;
     }
-    set topeCredito(nuevoTope){
-        this._topeCredito = nuevoTope;
+    ++CuentaCorriente.cantidad;
     }
     get topeCredito(){
-        return this._topeCredito
+    return this._topeCredito;
     }
-    //metodo de la clase
-    girar(monto) {
-        if ((this.saldo-monto) >= -this._topeCredito){
-            this.saldo -= monto;
-            return true;
-        }
-        return false;
-    };
-}
-let ctaC = new CuentaCorriente(123,"orladno",2_000_000,2_000_000);
-ctaC.girar(2_500_000);
-ctaC.depositar(500_000);
-ctaC.girar(7_000_000);
-console.log("saldo ",ctaC.ConsultarSaldo());
+    
+    set topeCredito(nuevoTope){
+    this._topeCredito = nuevoTope;
+    }
+    // METODO DE LA CLASE
+    
+    
+    girar(monto){
+    let tsaldo = this._saldo;
+    tsaldo-=monto
+    
+    if (tsaldo >= - this._topeCredito){
+    this._saldo = tsaldo;
+    return true;
+    }
+    return false;
+    }
+    
+    }
+    //class Persona que es un atributo de la class padre Cuenta.
+    class Persona{
+    static cantidadPersonas =0;
+    constructor(tipoPersona,tipoIdenti,numIdenti,nombre,telefono,Cuenta){
+    this._tipoPersona = tipoPersona;
+    this._tipoIdenti = tipoIdenti;
+    this._numIdenti = numIdenti;
+    this._nombre =nombre;
+    this._telefono = telefono;
+    this._Cuenta = Cuenta;
+    
+    
+    }
+    set tipoPersona(nuevoTipo){
+    this._tipoPersona=nuevoTipo;
+    }
+    get tipoPersona(){
+    return this._tipoPersona;
+    }
+    set tipoIdenti(nuevoTipoIdenti){
+    this._tipoIdenti = nuevoTipoIdenti;
+    }
+    get tipoIdenti(){
+    return this._tipoIdenti;
+    }
+    set numIdenti(nuevoNumIdenti){
+    this._numIdenti = nuevoNumIdenti;
+    }
+    get numIdenti(){
+    return this._numIdenti;
+    }
+    set nombre(nuevoNombre){
+    this._nombre = nuevoNombre;
+    }
+    get nombre(){
+    return this._nombre;
+    }
+    set telefono(nuevoTelefono){
+    this._telefono = nuevoTelefono;
+    }
+    get telefono(){
+    return this._telefono;
+    }
+    set Cuenta(nuevaCuenta){
+        this._Cuenta = nuevaCuenta;
+    }
+    get Cuenta(){
+    return this._Cuenta;
+    }
+    }
+    //clase PersonaNatural hereda de la class Persona
+    class PersonaNatural extends Persona{
+    
+    static cantidadPersonas = 0;
+    constructor(sexo){
+    super(numero,saldo,Persona);
+    this._sexo=sexo;
+    ++PersonaNatural.cantidadPersonas;
+    }
+    set sexo(nuevoSexo){
+    this._sexo = nuevoSexo;
+    }
+    get sexo(){
+    return this._sexo;
+    }
+    
+    }
+    //clase PersonaJuridica hereda de la class Persona
+    class PersonaJuridica extends Persona{
+    static cantidadPersonas=0;
+    constructor(){
+    super(numero,saldo,Persona);
+    ++PersonaJuridica.cantidadPersonas;
+    }
+    }
+    
+    
+    
+    const cuenta1 = new CuentaCorriente(12345, 1000, new Persona("natural", "cedula", "123456789", "Juan Pérez", "3116343212",this.cuenta1));
+    console.log(cuenta1);
