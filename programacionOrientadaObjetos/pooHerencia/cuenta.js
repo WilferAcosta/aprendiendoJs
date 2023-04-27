@@ -1,10 +1,10 @@
 class Cuenta {
-    static cantidad = 0;
-    constructor(numero,saldo=0,Persona) {
+    static cantidadPersonas = 0;
+    constructor(numero,saldo=0) {
     this._numero = numero;
     this._Persona = Persona;
     this._saldo = saldo;
-    ++Cuenta.cantidad
+    ++Cuenta.cantidadPersonas
     }
     set numero(nuevoNumero){
     this._numero = nuevoNumero;
@@ -47,8 +47,8 @@ class Cuenta {
     }
     class CuentaCorriente extends Cuenta {
     static cantidad = 0;
-    constructor (numero,saldo=0,Persona,topeCredito){
-    super(numero, Persona, saldo);
+    constructor (numero,saldo=0,topeCredito){
+    super(numero, saldo);
     this._topeCredito = topeCredito;
     if (this._topeCredito === undefined ){
     this._topeCredito = 0;
@@ -120,8 +120,8 @@ class Cuenta {
     get telefono(){
     return this._telefono;
     }
-    set Cuenta(nuevaCuenta){
-        this._Cuenta = nuevaCuenta;
+    set Cuenta(Cuenta){
+        this._Cuenta = Cuenta;
     }
     get Cuenta(){
     return this._Cuenta;
@@ -153,7 +153,12 @@ class Cuenta {
     }
     }
     
+    let cuenta= new CuentaCorriente(123131,2_000_000,2_000_000)
+
     
+    let persona1 = new Persona("natural","cc",123456,"wilfer",123546546,cuenta);
     
-    const cuenta1 = new CuentaCorriente(12345, 1000, new Persona("natural", "cedula", "123456789", "Juan Pérez", "3116343212",this.cuenta1));
-    console.log(cuenta1);
+    persona1.Cuenta.girar(2_500_000);
+    persona1.Cuenta.depositar(500_000);
+    persona1.Cuenta.girar(7_000_000);
+    console.log(persona1.Cuenta.consultarSaldo());
