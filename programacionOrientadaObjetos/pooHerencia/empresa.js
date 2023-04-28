@@ -1,4 +1,4 @@
-class Empresa{
+class Personas{
     #name
     #identificacion
     constructor(name,identificacion){

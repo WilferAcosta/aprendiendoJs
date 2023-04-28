@@ -38,8 +38,9 @@ class bodega {
         }
     };
     menorProducto(){
-        const min = 0;
-    const menor = productos.reduce((accumulator, currentValue) => accumulator + currentValue,initialValue);
+        let menor = { cantida1: Infinity };
+        productos.forEach(el => menor = el.cantida1 < menor.cantida1 ? el : menor )
+        console.log('hola  ', menor);
     }
 }
 const productos = [];

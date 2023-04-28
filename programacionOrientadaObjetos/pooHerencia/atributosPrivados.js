@@ -20,5 +20,5 @@ class Persona {
 }
 let p1= new Persona("wilfer","M");
 console.log(p1);
-p1.#nombre = "acosta";
+p1.nombre = "acosta";
 console.log(p1);

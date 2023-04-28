@@ -153,10 +153,10 @@ class Cuenta {
     }
     }
     
-    let cuenta= new CuentaCorriente(123131,2_000_000,2_000_000)
+    const cuenta = new CuentaCorriente(123131,2_000_000,2_000_000);
 
     
-    let persona1 = new Persona("natural","cc",123456,"wilfer",123546546,cuenta);
+    const persona1 = new Persona("natural","cc",123456,"wilfer",123546546,cuenta);
     
     persona1.Cuenta.girar(2_500_000);
     persona1.Cuenta.depositar(500_000);
