@@ -13,7 +13,6 @@
         background-color: black;
         color: white;
     }
-
     h1 {
         text-align: center;
     }
@@ -26,24 +25,33 @@
             <div class="col-3" style="display: inline-table;">
                 <form>
                     <div class="form-group"><label for="codigo">Codigo: </label><input type="number" name="codigo"
-                            id="codigo" class="form-control" placeholder="10000" aria-label="Username"
+                            id="codigo" class="form-control" placeholder="codigo" aria-label="Username"
                             aria-describedby="addon-wrapping"></div>
-                    <div class="form-group"><label for="descri">Descripción: </label><select class="form-control"
-                            id="descri">
+                    <div class="form-group"><label for="descri">Descripción: </label><select id="descripcion" onchange="mostrarCampoAdicional()" class="form-select" aria-label="Default select example"   
+                            >
+                            <option >Open this select menu</option>
                             <option value="prenda">Prendas de vestir</option>
                             <option value="calzado">Calzado</option>
                         </select></div>
-                    <div class="form-group"><label for="talla">Talla: </label><input type="number" name="talla"
-                            id="talla" class="form-control" placeholder="10000" aria-label="Username"
+                    <div class="form-group" id="planchado" style="display: none;">
+                        <label for="codigo">Planchado: </label><select id="planchado" class="form-select" aria-label="Default select example"   
+                        >
+                        <option >Open this select menu</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>
+                    </select>
+                    </div>
+                    <div class="form-group"><label for="talla">Talla: </label><input type="text" name="talla"
+                            id="talla" class="form-control" placeholder="calzado: numero o prenda: text" aria-label="Username"
                             aria-describedby="addon-wrapping"></div>
                     <div class="form-group"><label for="Precio de compra">Precio de compra: </label><input type="number"
-                            name="precioCon" id="precioCon" class="form-control" placeholder="10000"
+                            name="precioCon" id="precioCon" class="form-control" placeholder="precio compra"
                             aria-label="Username" aria-describedby="addon-wrapping"></div>
                     <div class="form-group"><label for="Precio de venta">Precio de venta.</label><input type="number"
-                            name="precioVen" id="precioVen" class="form-control" placeholder="10000"
+                            name="precioVen" id="precioVen" class="form-control" placeholder="precio venta"
                             aria-label="Username" aria-describedby="addon-wrapping"></div>
                     <div class="form-group"><label for="Cantidadenbodega">Cantidad en bodega: </label><input
-                            type="number" name="cantidad" id="cantidad" class="form-control" placeholder="10000"
+                            type="number" name="cantidad" id="cantidad" class="form-control" placeholder="cantidad"
                             aria-label="Username" aria-describedby="addon-wrapping"></div>
                     <div class="form-group"><label for="CantidadMinima">Cantidad mínima requerida en bodega:
                         </label><input type="number" name="cantidadMin" id="cantidadMin" class="form-control"
@@ -67,28 +75,10 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <table class="table table-success table-striped">
-                    <thead>
-                        <tr>
-                            <th>Cantidad</th>
-                            <th>Codigo.</th>
-                            <th>Descripción.</th>
-                            <th>Talla.</th>
-                            <th>Precio de compra.</th>
-                            <th>Precio de venta.</th>
-                            <th>Cantidad en bodega.</th>
-                            <th>Cantidad mínima requerida en bodega.</th>
-                            <th>Cantidad máxima de inventario permitida.</th>
-                            <th>Porcentaje de Descuento.</th>
-                        </tr>
-                    </thead>
-                    <tbody id="datostabla">
-
-                    </tbody>
-                </table>
-            </div>
+        <div class="row" id="datoss">
+            
+                
+                
         </div>
     </div>
 

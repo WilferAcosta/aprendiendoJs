@@ -13,4 +13,3 @@ let valido = myRe2.test('+5760363636');
 for(let exp of valido){
     console.log(exp);
 }
- 
