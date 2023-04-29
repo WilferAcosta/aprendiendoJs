@@ -66,7 +66,7 @@ function almacenar() {
         tarjeta += `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
         <div class="card-header">Codigo del Producto: ${codigo1}</div>
         <div class="card-body">
-        <h5 class="card-title">tiene $${cantida1} buena cantidad !!.</h5>
+        <h5 class="card-title">tiene  $${cantida1} poca cantidad !!.</h5>
         <p class="card-text">${fecha}</p>
         </div>
     </div>`;
