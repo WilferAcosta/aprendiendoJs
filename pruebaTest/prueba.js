@@ -77,6 +77,9 @@
         calcularValorPagar(unidadesCompra) {
             return this.#precioCompra * unidadesCompra;
         };
+        calcularPorcentajeGanancia() {
+            return ((this.precioVenta - this.precioCompra) / this.precioCompra) * 100;
+        };
     }
 
     class PrendaVestir extends Producto {
@@ -166,16 +169,16 @@
                 let calzado = new Calzado(codigo, descripcion, precioCon, precioVen, cantidad, cantidadMinima, cantidadMaxima, porcentaje, talla);
                 body += `<div class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
                 <div class="card-header">codigo del producto: ${codigo}</div>
-            <div class="card-body">
-            <p class="card-text">Descripcion: ${descripcion}</p>
-            <p class="card-text">talla: ${talla}</p>
-            <p class="card-text">Precio compra${precioCon}</p>
-            <p class="card-text">Precio venta${precioVen}</p>
-            <p class="card-text">Cantidad en bodega${cantidad}</p>
-            <p class="card-text">Cantidad minima en bodega${cantidad}</p>
-            <p class="card-text">cantidad de productos: ${cont}</p>
-            </div>
-        </div>`;
+                <div class="card-body">
+                <p class="card-text">Descripcion: ${descripcion}</p>
+                <p class="card-text">talla: ${talla}</p>
+                <p class="card-text">Precio compra${precioCon}</p>
+                <p class="card-text">Precio venta${precioVen}</p>
+                <p class="card-text">Cantidad en bodega${cantidad}</p>
+                <p class="card-text">Cantidad minima en bodega${cantidad}</p>
+                <p class="card-text">cantidad de productos: ${cont}</p>
+                </div>
+                </div>`;
             };
         datos.push({
             codigo: codigo,
@@ -190,7 +193,7 @@
         });
         cont++;
         document.getElementById("datoss").innerHTML = body;
-        
+    
         tarjeta = `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
         <div class="card-header">cantidad de productos: ${cont}</div>
         <div class="card-body">
@@ -199,6 +202,7 @@
         <p class="card-text">calzado con mayor talla: codigo:${codigo} talla:</p>
         </div>
         </div>`;
+        document.getElementById("tarjeta").innerHTML = tarjeta;
         // Restablecer los valores de los campos a vacío
         document.getElementById("descripcion").value = "";
         document.getElementById("codigo").value = "";
@@ -223,3 +227,4 @@
             talla.inputElement.type = "number"
         }
     };
+    

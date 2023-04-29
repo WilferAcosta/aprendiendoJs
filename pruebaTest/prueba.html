@@ -13,6 +13,7 @@
         background-color: black;
         color: white;
     }
+
     h1 {
         text-align: center;
     }
@@ -23,26 +24,26 @@
         <div class="row">
             <h1>GUARDAR PRODUCTOS</h1>
             <div class="col-3" style="display: inline-table;">
-                <form>
+                <form id="formularioAll">
                     <div class="form-group"><label for="codigo">Codigo: </label><input type="number" name="codigo"
                             id="codigo" class="form-control" placeholder="codigo" aria-label="Username"
                             aria-describedby="addon-wrapping"></div>
-                    <div class="form-group"><label for="descri">Descripción: </label><select id="descripcion" onchange="mostrarCampoAdicional()" class="form-select" aria-label="Default select example"   
-                            >
-                            <option >Open this select menu</option>
+                    <div class="form-group"><label for="descri">Descripción: </label><select id="descripcion"
+                            onchange="mostrarCampoAdicional()" class="form-select" aria-label="Default select example">
+                            <option>Open this select menu</option>
                             <option value="prenda">Prendas de vestir</option>
                             <option value="calzado">Calzado</option>
                         </select></div>
                     <div class="form-group" id="planchado" style="display: none;">
-                        <label for="codigo">Planchado: </label><select id="planchado" class="form-select" aria-label="Default select example"   
-                        >
-                        <option >Open this select menu</option>
-                        <option value="si">SI</option>
-                        <option value="no">NO</option>
-                    </select>
+                        <label for="codigo">Planchado: </label><select id="planchado" class="form-select"
+                            aria-label="Default select example">
+                            <option>Open this select menu</option>
+                            <option value="si">SI</option>
+                            <option value="no">NO</option>
+                        </select>
                     </div>
-                    <div class="form-group"><label for="talla">Talla: </label><input type="text" name="talla"
-                            id="talla" class="form-control" placeholder="calzado: numero o prenda: text" aria-label="Username"
+                    <div class="form-group"><label for="talla">Talla: </label><input type="text" name="talla" id="talla"
+                            class="form-control" placeholder="calzado: numero o prenda: text" aria-label="Username"
                             aria-describedby="addon-wrapping"></div>
                     <div class="form-group"><label for="Precio de compra">Precio de compra: </label><input type="number"
                             name="precioCon" id="precioCon" class="form-control" placeholder="precio compra"
@@ -66,19 +67,15 @@
                 </form>
             </div>
             <div class="col-8">
-                <div id="tarjeta"></div>
+                <div id="tarjeta">
+                </div>
             </div>
         </div>
         <br>
-        
     </div>
     </div>
-
     <div class="container">
         <div class="row" id="datoss">
-            
-                
-                
         </div>
     </div>
 
