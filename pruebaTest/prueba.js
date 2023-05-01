@@ -198,8 +198,8 @@
         <div class="card-header">cantidad de productos: ${cont}</div>
         <div class="card-body">
         <p class="card-text">cantidad de prendas de vestir: ${cantidadPrendas}</p>
-        <p class="card-text">cantidad de pedidos al provedor${talla}</p>
-        <p class="card-text">calzado con mayor talla: codigo:${codigo} talla:</p>
+        <p class="card-text">cantidad de pedidos al provedor: ${talla.toUpperCase()}</p>
+        <p class="card-text">calzado con mayor talla: codigo:${codigo} talla:${talla}</p>
         </div>
         </div>`;
         document.getElementById("tarjeta").innerHTML = tarjeta;
