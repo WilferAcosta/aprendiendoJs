@@ -17,7 +17,6 @@ function pagaFactura() {
         valortotal = Facturas.get(nfactura) - vfactura;
         if (valortotal === 0) {
             Facturas.delete(nfactura);
-            //document.getElementById("impFacturas").innerHTML = cont;
         } else {
             Facturas.set(nfactura, valortotal); 
         }
