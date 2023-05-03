@@ -1,0 +1,1 @@
+//almacena mientras este el navegador abierta si se cierra se borra
