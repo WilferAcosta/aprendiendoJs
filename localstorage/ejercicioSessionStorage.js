@@ -3,15 +3,16 @@ function guardar(){
     apellido = document.getElementById("apellido").value;
     sessionStorage.setItem("Nombres",nombre);
     sessionStorage.setItem("Apellidos",apellido);
-    cont.push(localStorage.setItem("Nombres",nombre),localStorage.setItem("Apellidos",apellido))
+    v.set(nombre,apellido);
 }
 function cargar(){
     document.getElementById("mostrarNombre").value = sessionStorage.getItem("Nombres");
-    document.getElementById("mostrarApellido").value = sessionStorage.getItem("Apellidos");
-    
-    for(let a of cont){
-        str+= `nombre : ${a} apellido : ${a.getItem}`
+    document.getElementById("mostrarApellido").value = sessionStorage.getItem("Apellidos"); 
+    v.forEach(function(v,k){
+        console.log("nombre: ",k," su apellido es ",v);
+    });
 }
-cont = [];
-str = "";
+
+const v = new Map();
+console.log(v)
 
