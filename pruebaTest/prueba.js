@@ -154,6 +154,7 @@
     }   
     tarjeta="";
     datos=[];
+    
     function agregar1(){
         body = "";
         let codigo = document.getElementById("codigo").value;
@@ -169,26 +170,27 @@
         let porcentajeDescuento = document.getElementById("descuento").value;
         if(tipo === "prenda"){
             // Crear instancia de la clase PrendaVestir
-            console.log(planchado);
             let prendaa = new PrendaVestir(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla, planchado);
-            console.log(prendaa.codigo);
             prendaa.mostrar();
+            localStorage.setItem("prenda",JSON.stringify(prendaa));
             }else{
                 let calzado = new Calzado(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla);
-                
                 calzado.mostrar();
+                localStorage.setItem("calzado",JSON.stringify(calzado));
             };
-        // datos.push({
-        //     codigo: codigo,
-        //     descripcion: descripcion,
-        //     talla: talla,
-        //     precioCon: precioCon,
-        //     precioVen:precioVen,
-        //     cantidadt : cantidad,
-        //     cantidadMinima : cantidadMinima,
-        //     cantidadMaxima : cantidadMaxima,
-        //     porcentaje : porcentaje
-        // });
+
+        datos.push({
+            codigo: codigo,
+            tipos: tipo,
+            descripcion: descripcion,
+            talla: talla,
+            precioCon: precioCompra,
+            precioVen:precioVenta,
+            cantidadt : cantidad,
+            cantidadMinima : cantidadMinimaBodega,
+            cantidadMaxima : cantidadMaximaInventario,
+            porcentaje : porcentajeDescuento
+        });
         document.getElementById("datoss").innerHTML += body;
         // Restablecer los valores de los campos a vacío
         document.getElementById("descripcion").value = "";
@@ -201,6 +203,7 @@
         document.getElementById("cantidadMax").value = "";
         document.getElementById("descuento").value = "";
         document.getElementById("talla").value = "";
+        document.getElementById("tipo").value = "";
     };
     function mostrarCampoAdicional() {
         let option = document.getElementById("tipo").value;
