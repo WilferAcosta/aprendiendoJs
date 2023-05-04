@@ -88,10 +88,12 @@
     class PrendaVestir extends Producto {
         #talla;
         #planchado;
+        static contador =0;
         constructor(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento,talla,planchado) {
             super(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento);
             this.#talla = talla;
             this.#planchado = planchado;
+            ++PrendaVestir.contador;
         };
         set talla(talla) {
             this.#talla = talla;
@@ -124,6 +126,7 @@
     }
     class Calzado extends Producto {
         #talla;
+        static contador =0;
         constructor(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento,talla) {
             super(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento);
             this.#talla = talla;
@@ -149,12 +152,12 @@
             </div>`;
         }
     }   
-    
     tarjeta="";
     datos=[];
     function agregar1(){
         body = "";
         let codigo = document.getElementById("codigo").value;
+        let tipo = document.getElementById("tipo").value;
         let descripcion = document.getElementById("descripcion").value;
         let talla = document.getElementById("talla").value;
         let planchado = document.getElementById("planchado").value;
@@ -164,7 +167,7 @@
         let cantidadMinimaBodega = document.getElementById("cantidadMin").value;
         let cantidadMaximaInventario = document.getElementById("cantidadMax").value;
         let porcentajeDescuento = document.getElementById("descuento").value;
-        if(descripcion === "prenda"){
+        if(tipo === "prenda"){
             // Crear instancia de la clase PrendaVestir
             console.log(planchado);
             let prendaa = new PrendaVestir(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla, planchado);
@@ -200,7 +203,7 @@
         document.getElementById("talla").value = "";
     };
     function mostrarCampoAdicional() {
-        let option = document.getElementById("descripcion").value;
+        let option = document.getElementById("tipo").value;
         let planchado = document.getElementById("planchado");
         let talla = document.getElementById("talla");
         if (option === "prenda") {
