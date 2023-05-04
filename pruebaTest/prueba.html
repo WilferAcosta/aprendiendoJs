@@ -17,6 +17,10 @@
     h1 {
         text-align: center;
     }
+    .col-3{
+        border: 4px solid white;
+        border-radius: 15px;
+    }
 </style>
 
 <body>
@@ -45,7 +49,7 @@
                     <div class="form-group"><label for="talla">Talla: </label><input type="text" name="talla" id="talla"
                             class="form-control" placeholder="calzado: numero o prenda: text" aria-label="Username"
                             aria-describedby="addon-wrapping"></div>
-                    <div class="form-group"><label for="Precio de compra">Precio de compra: </label><input type="number"
+                    <div class="form-group"><label for="precioCon">Precio de compra: </label><input type="number"
                             name="precioCon" id="precioCon" class="form-control" placeholder="precio compra"
                             aria-label="Username" aria-describedby="addon-wrapping"></div>
                     <div class="form-group"><label for="Precio de venta">Precio de venta.</label><input type="number"
@@ -63,7 +67,9 @@
                     <div class="form-group"><label for="Porcentaje">Porcentaje de Descuento: </label><input
                             type="number" name="descuento" id="descuento" class="form-control" placeholder="10000"
                             aria-label="Username" aria-describedby="addon-wrapping"></div>
+                            <div class="boton">
                     <button type="button" class="btn btn-outline-secondary" onclick="agregar1()">Agregar Datos</button>
+                </div>
                 </form>
             </div>
             <div class="col-8">

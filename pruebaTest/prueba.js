@@ -80,7 +80,10 @@
         calcularPorcentajeGanancia() {
             return ((this.precioVenta - this.precioCompra) / this.precioCompra) * 100;
         };
-    }
+        mostrar(){
+
+        }
+    }cantidadMax
 
     class PrendaVestir extends Producto {
         #talla;
@@ -102,11 +105,25 @@
         get planchado() {
             return this.#planchado;
         };
+        mostrar(){
+            body += `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
+            <div class="card-header">codigo del producto: ${this.codigo}</div>
+            <div class="card-body">
+            <p class="card-text">Descripcion: ${this.descripcion}</p>
+            <p class="card-text">talla: ${this.talla.toUpperCase()}</p>
+            <p class="card-text">Planchado: ${this.planchado}</p>
+            <p class="card-text">Precio compra $${this.precioCompra}</p>
+            <p class="card-text">Precio venta $${this.precioVenta}</p>
+            <p class="card-text">Cantidad en bodega: ${this.cantidadBodega}</p>
+            <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
+            <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
+            </div>
+        </div>`;
+        }
         
     }
     class Calzado extends Producto {
         #talla;
-        
         constructor(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento,talla) {
             super(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento);
             this.#talla = talla;
@@ -117,92 +134,59 @@
         get talla() {
             return this.#talla;
         };
-    }
-
-    let cont=0;
-    body="";
+        mostrar(){
+            body += `<div class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
+                <div class="card-header">codigo del producto: ${this.codigo}</div>
+                <div class="card-body">
+                <p class="card-text">Descripcion: ${this.descripcion}</p>
+                <p class="card-text">talla: ${this.talla}</p>
+                <p class="card-text">Precio compra${this.precioCompra}</p>
+                <p class="card-text">Precio venta${this.precioVenta}</p>
+                <p class="card-text">Cantidad en bodega${this.cantidadBodega}</p>
+                <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
+                <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
+                </div>
+            </div>`;
+        }
+    }   
+    
     tarjeta="";
     datos=[];
-    let cantidadPrendas=0;
-    let cantidadCalzado=0;
-    let cantidadPedidosProveedor = 0;
-    let codigosPedidosProveedor = [];
-
-
     function agregar1(){
+        body = "";
         let codigo = document.getElementById("codigo").value;
         let descripcion = document.getElementById("descripcion").value;
         let talla = document.getElementById("talla").value;
         let planchado = document.getElementById("planchado").value;
-        let precioCon = document.getElementById("precioCon").value;
-        let precioVen = document.getElementById("precioVen").value;
+        let precioCompra = document.getElementById("precioCon").value;
+        let precioVenta = document.getElementById("precioVen").value;
         let cantidad = document.getElementById("cantidad").value;
-        let cantidadMinima = document.getElementById("cantidadMin").value;
-        let cantidadMaxima = document.getElementById("cantidadMax").value;
-        let porcentaje = document.getElementById("descuento").value;
+        let cantidadMinimaBodega = document.getElementById("cantidadMin").value;
+        let cantidadMaximaInventario = document.getElementById("cantidadMax").value;
+        let porcentajeDescuento = document.getElementById("descuento").value;
         if(descripcion === "prenda"){
-            cantidadPrendas++
             // Crear instancia de la clase PrendaVestir
-            let prenda = new PrendaVestir(codigo, descripcion, precioCon, precioVen, cantidad, cantidadMinima, cantidadMaxima, porcentaje, talla, planchado);
-            body += `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
-            <div class="card-header">codigo del producto: ${codigo}</div>
-            <div class="card-body">
-            <p class="card-text">Descripcion: ${descripcion}</p>
-            <p class="card-text">talla: ${talla.toUpperCase()}</p>
-            <p class="card-text">Planchado: ${planchado}</p>
-            <p class="card-text">Precio compra $${precioCon}</p>
-            <p class="card-text">Precio venta $${precioVen}</p>
-            <p class="card-text">Cantidad en bodega: ${cantidad}</p>
-            <p class="card-text">Cantidad minima en bodega: ${cantidad}</p>
-            <p class="card-text">Cantidad minima en maxima: ${cantidad}</p>
-            <p class="card-text">cantidad de productos: ${cont}</p>
-            </div>
-        </div>`;
+            console.log(planchado);
+            let prendaa = new PrendaVestir(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla, planchado);
+            console.log(prendaa.codigo);
+            prendaa.mostrar();
             }else{
-                cantidadCalzado++;
-                if (cantidad <= cantidadMinima) {
-                    // Incrementar la cantidad de productos que requieren pedidos al proveedor
-                    cantidadPedidosProveedor++;
-                    // Almacenar el código del producto que requiere pedido al proveedor
-                    codigosPedidosProveedor.push(codigo);
-                }
-                let calzado = new Calzado(codigo, descripcion, precioCon, precioVen, cantidad, cantidadMinima, cantidadMaxima, porcentaje, talla);
-                body += `<div class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
-                <div class="card-header">codigo del producto: ${codigo}</div>
-                <div class="card-body">
-                <p class="card-text">Descripcion: ${descripcion}</p>
-                <p class="card-text">talla: ${talla}</p>
-                <p class="card-text">Precio compra${precioCon}</p>
-                <p class="card-text">Precio venta${precioVen}</p>
-                <p class="card-text">Cantidad en bodega${cantidad}</p>
-                <p class="card-text">Cantidad minima en bodega${cantidad}</p>
-                <p class="card-text">cantidad de productos: ${cont}</p>
-                </div>
-                </div>`;
+                let calzado = new Calzado(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla);
+                
+                calzado.mostrar();
             };
-        datos.push({
-            codigo: codigo,
-            descripcion: descripcion,
-            talla: talla,
-            precioCon: precioCon,
-            precioVen:precioVen,
-            cantidadt : cantidad,
-            cantidadMinima : cantidadMinima,
-            cantidadMaxima : cantidadMaxima,
-            porcentaje : porcentaje
-        });
-        cont++;
-        document.getElementById("datoss").innerHTML = body;
-    
-        tarjeta = `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
-        <div class="card-header">cantidad de productos: ${cont}</div>
-        <div class="card-body">
-        <p class="card-text">cantidad de prendas de vestir: ${cantidadPrendas}</p>
-        <p class="card-text">cantidad de pedidos al provedor: ${talla.toUpperCase()}</p>
-        <p class="card-text">calzado con mayor talla: codigo:${codigo} talla:${talla}</p>
-        </div>
-        </div>`;
-        document.getElementById("tarjeta").innerHTML = tarjeta;
+        // datos.push({
+        //     codigo: codigo,
+        //     descripcion: descripcion,
+        //     talla: talla,
+        //     precioCon: precioCon,
+        //     precioVen:precioVen,
+        //     cantidadt : cantidad,
+        //     cantidadMinima : cantidadMinima,
+        //     cantidadMaxima : cantidadMaxima,
+        //     porcentaje : porcentaje
+        // });
+        document.getElementById("datoss").innerHTML += body;
         // Restablecer los valores de los campos a vacío
         document.getElementById("descripcion").value = "";
         document.getElementById("codigo").value = "";
@@ -221,10 +205,10 @@
         let talla = document.getElementById("talla");
         if (option === "prenda") {
             planchado.style.display = "block";
-            // talla.inputElement.type = "text";
+            talla.type = "text";
         } else {
             planchado.style.display = "none";
-            talla.inputElement.type = "number"
+            talla.type = "number"
         }
     };
     
