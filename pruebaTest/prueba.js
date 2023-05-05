@@ -69,10 +69,7 @@
         };
 
         solicitarPedido() {
-            if (this.#cantidadBodega >= this.#cantidadMinimaBodega) {
-                return true;
-            }
-            return false;
+            
         };
         calcularValorPagar(unidadesCompra) {
             return this.#precioCompra * unidadesCompra;
@@ -83,6 +80,7 @@
         mostrar(){
 
         }
+        
     }cantidadMax
 
     class PrendaVestir extends Producto {
@@ -108,7 +106,7 @@
             return this.#planchado;
         };
         mostrar(){
-            body += `<div class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
+            body += `<div id="color" class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
             <div class="card-header">codigo del producto: ${this.codigo}</div>
             <div class="card-body">
             <p class="card-text">Descripcion: ${this.descripcion}</p>
@@ -122,6 +120,12 @@
             </div>
         </div>`;
         }
+        solicitarPedido() {
+            if (this.cantidadBodega >= this.cantidadMinimaBodega) {
+                return true;
+            }
+            return false;
+        };
         
     }
     class Calzado extends Producto {
@@ -138,7 +142,7 @@
             return this.#talla;
         };
         mostrar(){
-            body += `<div class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
+            body += `<div id="color" class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
                 <div class="card-header">codigo del producto: ${this.codigo}</div>
                 <div class="card-body">
                 <p class="card-text">Descripcion: ${this.descripcion}</p>
@@ -151,6 +155,12 @@
                 </div>
             </div>`;
         }
+        solicitarPedido() {
+            if (this.cantidadBodega >= this.cantidadMinimaBodega) {
+                return true;
+            }
+            return false;
+        };
     }   
     tarjeta="";
     datos=[];
@@ -172,11 +182,13 @@
             // Crear instancia de la clase PrendaVestir
             let prendaa = new PrendaVestir(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla, planchado);
             prendaa.mostrar();
-            localStorage.setItem("prenda",JSON.stringify(prendaa));
+            //crear color de la tarjeta
+            if(prendaa.solicitarPedido() === true)
             }else{
                 let calzado = new Calzado(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla);
                 calzado.mostrar();
-                localStorage.setItem("calzado",JSON.stringify(calzado));
+                //crear color de la tarjeta
+                console.log(calzado.solicitarPedido());
             };
 
         datos.push({

@@ -1,0 +1,26 @@
+[
+	{
+		"NOMBRE": "Carlos",
+		"EQUIPO": "Apolo",
+		"EDAD": 22,
+		"GENERO": "F"
+	},
+	{
+		"NOMBRE": "Wilfer",
+		"EQUIPO": "SPUNIK",
+		"EDAD": 28,
+		"GENERO": "M"
+	},
+	{
+		"NOMBRE": "teofilo",
+		"EQUIPO": "ACAOLO",
+		"EDAD": 21,
+		"GENERO": "M"
+	},
+	{
+		"NOMBRE": "Orlando",
+		"EQUIPO": "PERRON",
+		"EDAD": 18,
+		"GENERO": "M"
+	}
+]
