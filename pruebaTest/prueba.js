@@ -105,8 +105,8 @@
         get planchado() {
             return this.#planchado;
         };
-        mostrar(){
-            body += `<div id="color" class="card text-white bg-danger mb-3 ms-3" style="max-width: 18rem;">
+        mostrar(soli){
+            body += `<div id="color" class="card text-dark ${soli ? 'bg-white' : 'bg-secondary' } mb-3 ms-3" style="max-width: 18rem;">
             <div class="card-header">codigo del producto: ${this.codigo}</div>
             <div class="card-body">
             <p class="card-text">Descripcion: ${this.descripcion}</p>
@@ -121,10 +121,7 @@
         </div>`;
         }
         solicitarPedido() {
-            if (this.cantidadBodega >= this.cantidadMinimaBodega) {
-                return true;
-            }
-            return false;
+            return this.cantidadBodega >= this.cantidadMinimaBodega
         };
         
     }
@@ -141,8 +138,8 @@
         get talla() {
             return this.#talla;
         };
-        mostrar(){
-            body += `<div id="color" class="card text-white bg-success mb-3 ms-3" style="max-width: 18rem;">
+        mostrar(soli){
+            body += `<div id="color" class="card text-dark ${soli ? 'bg-white' : 'bg-secondary' } mb-3 ms-3" style="max-width: 18rem;">
                 <div class="card-header">codigo del producto: ${this.codigo}</div>
                 <div class="card-body">
                 <p class="card-text">Descripcion: ${this.descripcion}</p>
@@ -156,10 +153,7 @@
             </div>`;
         }
         solicitarPedido() {
-            if (this.cantidadBodega >= this.cantidadMinimaBodega) {
-                return true;
-            }
-            return false;
+            return this.cantidadBodega >= this.cantidadMinimaBodega
         };
     }   
     tarjeta="";
@@ -167,42 +161,38 @@
     
     function agregar1(){
         body = "";
-        let codigo = document.getElementById("codigo").value;
-        let tipo = document.getElementById("tipo").value;
-        let descripcion = document.getElementById("descripcion").value;
-        let talla = document.getElementById("talla").value;
-        let planchado = document.getElementById("planchado").value;
-        let precioCompra = document.getElementById("precioCon").value;
-        let precioVenta = document.getElementById("precioVen").value;
-        let cantidad = document.getElementById("cantidad").value;
-        let cantidadMinimaBodega = document.getElementById("cantidadMin").value;
-        let cantidadMaximaInventario = document.getElementById("cantidadMax").value;
-        let porcentajeDescuento = document.getElementById("descuento").value;
+        data={};
+        data.codigo = document.getElementById("codigo").value;
+        data.tipo = document.getElementById("tipo").value;
+        data.descripcion = document.getElementById("descripcion").value;
+        data.talla = document.getElementById("talla").value;
+        data.planchado = document.getElementById("planchado").value;
+        data.precioCompra = document.getElementById("precioCon").value;
+        data.precioVenta = document.getElementById("precioVen").value;
+        data.cantidad = document.getElementById("cantidad").value;
+        data.cantidadMinimaBodega = document.getElementById("cantidadMin").value;
+        data.cantidadMaximaInventario = document.getElementById("cantidadMax").value;
+        data.porcentajeDescuento = document.getElementById("descuento").value;
         if(tipo === "prenda"){
             // Crear instancia de la clase PrendaVestir
-            let prendaa = new PrendaVestir(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla, planchado);
-            prendaa.mostrar();
-            //crear color de la tarjeta
-            if(prendaa.solicitarPedido() === true)
-            }else{
-                let calzado = new Calzado(codigo, descripcion, precioCompra, precioVenta, cantidad, cantidadMinimaBodega, cantidadMaximaInventario, porcentajeDescuento, talla);
-                calzado.mostrar();
-                //crear color de la tarjeta
-                console.log(calzado.solicitarPedido());
+            let prendaa = new PrendaVestir(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla, data.planchado);
+            soli = prendaa.solicitarPedido();
+            console.log(soli);
+            prendaa.mostrar(soli);
+        }else{
+                let calzado = new Calzado(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla);
+                soli = calzado.solicitarPedido();
+                console.log(soli);
+                calzado.mostrar(soli);
             };
-
-        datos.push({
-            codigo: codigo,
-            tipos: tipo,
-            descripcion: descripcion,
-            talla: talla,
-            precioCon: precioCompra,
-            precioVen:precioVenta,
-            cantidadt : cantidad,
-            cantidadMinima : cantidadMinimaBodega,
-            cantidadMaxima : cantidadMaximaInventario,
-            porcentaje : porcentajeDescuento
+            //creo un odjeto donde estan todos los elmentos del form
+        datos.push(data);
+        let mayor = 0;
+        datos.map(function(element){
+            datos.cantidad > mayor
+            mayor = element;
         });
+        console.log(mayor);
         document.getElementById("datoss").innerHTML += body;
         // Restablecer los valores de los campos a vacío
         document.getElementById("descripcion").value = "";
