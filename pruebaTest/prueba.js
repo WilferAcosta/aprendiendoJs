@@ -71,27 +71,27 @@
         solicitarPedido() {
             
         };
-        calcularValorPagar(unidadesCompra) {
-            return this.#precioCompra * unidadesCompra;
+        calcularValorPagar() {
+            return this.#precioCompra * this.#cantidadBodega;
         };
         calcularPorcentajeGanancia() {
-            return ((this.precioVenta - this.precioCompra) / this.precioCompra) * 100;
+            return ((this.precioVenta - this.precioCompra) / this.#porcentajeDescuento) * 100;
         };
         mostrar(){
 
         }
         
-    }cantidadMax
+    };
 
     class PrendaVestir extends Producto {
         #talla;
         #planchado;
-        static contador =0;
+        static contadorV = 0;
         constructor(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento,talla,planchado) {
             super(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento);
             this.#talla = talla;
             this.#planchado = planchado;
-            ++PrendaVestir.contador;
+            ++PrendaVestir.contadorV;
         };
         set talla(talla) {
             this.#talla = talla;
@@ -117,6 +117,8 @@
             <p class="card-text">Cantidad en bodega: ${this.cantidadBodega}</p>
             <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
             <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
+            <p class="card-text">Poorcentaje de descuento: ${this.porcentajeDescuento}</p>
+                <p class="card-text">TOTAL a pagar: ${totalPagar}</p>
             </div>
         </div>`;
         }
@@ -124,13 +126,14 @@
             return this.cantidadBodega >= this.cantidadMinimaBodega
         };
         
-    }
+    };
     class Calzado extends Producto {
         #talla;
-        static contador =0;
+        static contadorC =0;
         constructor(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento,talla) {
             super(codigo,descripcion,precioCompra,precioVenta,cantidadBodega,cantidadMinimaBodega,cantidadMaximaInventario,porcentajeDescuento);
             this.#talla = talla;
+            ++Calzado.contadorC;
         };
         set talla(talla) {
             this.#talla = talla;
@@ -138,7 +141,7 @@
         get talla() {
             return this.#talla;
         };
-        mostrar(soli){
+        mostrar(soli,totalPagar){
             body += `<div id="color" class="card text-dark ${soli ? 'bg-white' : 'bg-secondary' } mb-3 ms-3" style="max-width: 18rem;">
                 <div class="card-header">codigo del producto: ${this.codigo}</div>
                 <div class="card-body">
@@ -149,16 +152,18 @@
                 <p class="card-text">Cantidad en bodega${this.cantidadBodega}</p>
                 <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
                 <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
+                <p class="card-text">Poorcentaje de descuento: ${this.porcentajeDescuento}</p>
+                <p class="card-text">TOTAL a pagar: ${totalPagar}</p>
                 </div>
             </div>`;
         }
         solicitarPedido() {
             return this.cantidadBodega >= this.cantidadMinimaBodega
         };
-    }   
+    };
     tarjeta="";
     datos=[];
-    
+    resumen="";
     function agregar1(){
         body = "";
         data={};
@@ -167,32 +172,55 @@
         data.descripcion = document.getElementById("descripcion").value;
         data.talla = document.getElementById("talla").value;
         data.planchado = document.getElementById("planchado").value;
+        console.log(data.planchado);
         data.precioCompra = document.getElementById("precioCon").value;
         data.precioVenta = document.getElementById("precioVen").value;
         data.cantidad = document.getElementById("cantidad").value;
         data.cantidadMinimaBodega = document.getElementById("cantidadMin").value;
         data.cantidadMaximaInventario = document.getElementById("cantidadMax").value;
         data.porcentajeDescuento = document.getElementById("descuento").value;
+        localStorage.setItem("data",JSON.stringify(datos));
+        let totalPagar = 0;
+        let soli = "";
+        let margenGanancia = 0;
         if(tipo === "prenda"){
             // Crear instancia de la clase PrendaVestir
             let prendaa = new PrendaVestir(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla, data.planchado);
             soli = prendaa.solicitarPedido();
-            console.log(soli);
+            totalPagar = prendaa.calcularValorPagar();
+            margenGanancia = prenda.calcularPorcentajeGananciaj();
+            data.margenGanancia;
             prendaa.mostrar(soli);
         }else{
                 let calzado = new Calzado(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla);
                 soli = calzado.solicitarPedido();
-                console.log(soli);
-                calzado.mostrar(soli);
+                totalPagar = calzado.calcularValorPagar();
+                margenGanancia = calzado.calcularPorcentajeGanancia();
+                data.margenGanancia
+                calzado.mostrar(soli, totalPagar);
             };
             //creo un odjeto donde estan todos los elmentos del form
         datos.push(data);
+        console.log(datos);
         let mayor = 0;
         datos.map(function(element){
             datos.cantidad > mayor
             mayor = element;
         });
         console.log(mayor);
+        resumen = `<div id="color" class="card text-dark bg-white mb-3 ms-3" style="max-width: 18rem;">
+        <div class="card-header">Resumen :</div>
+        <div class="card-body">
+        <p class="card-text">cantidad de productos Ingresados: ${Producto.contador}</p>
+        <p class="card-text">Cantidad de productos de vestir: ${PrendaVestir.contadorV}</p>
+        <p class="card-text">Cantidad de Calzado: ${Calzado.contadorC}</p>
+        <p class="card-text">Cantidad de productos que requiere pedidos </p>
+        <p class="card-text">El calzado con mayor cantidad es codigo: ${mayor.codigo} su descriocion es : ${mayor.descripcion}</p>
+        <p class="card-text">Cantidad minima en bodega: </p>
+        <p class="card-text">Cantidad minima en maxima: </p>
+        </div>
+    </div>`;
+        document.getElementById("resumen").innerHTML = resumen;
         document.getElementById("datoss").innerHTML += body;
         // Restablecer los valores de los campos a vacío
         document.getElementById("descripcion").value = "";
