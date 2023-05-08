@@ -75,7 +75,9 @@
             return this.#precioCompra * this.#cantidadBodega;
         };
         calcularPorcentajeGanancia() {
-            return ((this.precioVenta - this.precioCompra) / this.#porcentajeDescuento) * 100;
+            let ventaR = 0;
+            ventaR = (this.#precioVenta*this.#porcentajeDescuento)/100;
+            return ((ventaR-this.#precioCompra)/ventaR)*100;
         };
         mostrar(){
 
@@ -118,7 +120,7 @@
             <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
             <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
             <p class="card-text">Poorcentaje de descuento: ${this.porcentajeDescuento}</p>
-                <p class="card-text">TOTAL a pagar: ${totalPagar}</p>
+                <p class="card-text">TOTAL a pagar: $${totalPagar}</p>
             </div>
         </div>`;
         }
@@ -147,13 +149,13 @@
                 <div class="card-body">
                 <p class="card-text">Descripcion: ${this.descripcion}</p>
                 <p class="card-text">talla: ${this.talla}</p>
-                <p class="card-text">Precio compra${this.precioCompra}</p>
-                <p class="card-text">Precio venta${this.precioVenta}</p>
+                <p class="card-text">Precio compra $${this.precioCompra}</p>
+                <p class="card-text">Precio venta $${this.precioVenta}</p>
                 <p class="card-text">Cantidad en bodega${this.cantidadBodega}</p>
                 <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
                 <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
                 <p class="card-text">Poorcentaje de descuento: ${this.porcentajeDescuento}</p>
-                <p class="card-text">TOTAL a pagar: ${totalPagar}</p>
+                <p class="card-text">TOTAL a pagar: $${totalPagar}</p>
                 </div>
             </div>`;
         }
@@ -165,8 +167,11 @@
     datos=[];
     resumen="";
     function agregar1(){
+        let totalPagar = 0;
+        let soli = "";
         body = "";
         data={};
+        let ganancia = 0;
         data.codigo = document.getElementById("codigo").value;
         data.tipo = document.getElementById("tipo").value;
         data.descripcion = document.getElementById("descripcion").value;
@@ -179,34 +184,35 @@
         data.cantidadMinimaBodega = document.getElementById("cantidadMin").value;
         data.cantidadMaximaInventario = document.getElementById("cantidadMax").value;
         data.porcentajeDescuento = document.getElementById("descuento").value;
-        localStorage.setItem("data",JSON.stringify(datos));
-        let totalPagar = 0;
-        let soli = "";
-        let margenGanancia = 0;
         if(tipo === "prenda"){
             // Crear instancia de la clase PrendaVestir
             let prendaa = new PrendaVestir(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla, data.planchado);
             soli = prendaa.solicitarPedido();
             totalPagar = prendaa.calcularValorPagar();
-            margenGanancia = prenda.calcularPorcentajeGananciaj();
-            data.margenGanancia;
+            data.ganancia = prendaa.calcularPorcentajeGanancia();
             prendaa.mostrar(soli);
         }else{
                 let calzado = new Calzado(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla);
                 soli = calzado.solicitarPedido();
                 totalPagar = calzado.calcularValorPagar();
-                margenGanancia = calzado.calcularPorcentajeGanancia();
-                data.margenGanancia
+                data.ganancia = calzado.calcularPorcentajeGanancia();
                 calzado.mostrar(soli, totalPagar);
             };
             //creo un odjeto donde estan todos los elmentos del form
+        console.log(ganancia)
         datos.push(data);
         console.log(datos);
         let mayor = 0;
         datos.map(function(element){
-            datos.cantidad > mayor
+            datos.cantidad > mayor;
             mayor = element;
         });
+        let gana = 0;
+        datos.map(function(elem){
+            datos.ganancia > gana
+            gana = elem;
+        });
+        console.log(gana);
         console.log(mayor);
         resumen = `<div id="color" class="card text-dark bg-white mb-3 ms-3" style="max-width: 18rem;">
         <div class="card-header">Resumen :</div>
@@ -216,8 +222,7 @@
         <p class="card-text">Cantidad de Calzado: ${Calzado.contadorC}</p>
         <p class="card-text">Cantidad de productos que requiere pedidos </p>
         <p class="card-text">El calzado con mayor cantidad es codigo: ${mayor.codigo} su descriocion es : ${mayor.descripcion}</p>
-        <p class="card-text">Cantidad minima en bodega: </p>
-        <p class="card-text">Cantidad minima en maxima: </p>
+        <p class="card-text">El producto con mayor margen de ganancia, su codigoes  ${gana.codgio} descripcion: ${gana.descripcion} valor compra: ${gana.valorCompra} valor venta: ${gana.valorVenta} y su margen de ganancia es: ${gana.ganancia} </p>
         </div>
     </div>`;
         document.getElementById("resumen").innerHTML = resumen;
