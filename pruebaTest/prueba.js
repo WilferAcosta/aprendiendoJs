@@ -76,8 +76,9 @@
         };
         calcularPorcentajeGanancia() {
             let ventaR = 0;
-            ventaR = (this.#precioVenta*this.#porcentajeDescuento)/100;
-            return ((ventaR-this.#precioCompra)/ventaR)*100;
+            ventaR = (this.#precioVenta) - (this.#precioVenta*this.#porcentajeDescuento)/100;
+            console.log(ventaR);
+            return ((ventaR - this.#precioCompra) / this.#precioCompra)*100;
         };
         mostrar(){
 
@@ -107,7 +108,7 @@
         get planchado() {
             return this.#planchado;
         };
-        mostrar(soli){
+        mostrar(soli,totalPagar){
             body += `<div id="color" class="card text-dark ${soli ? 'bg-white' : 'bg-secondary' } mb-3 ms-3" style="max-width: 18rem;">
             <div class="card-header">codigo del producto: ${this.codigo}</div>
             <div class="card-body">
@@ -120,7 +121,7 @@
             <p class="card-text">Cantidad minima en bodega: ${this.cantidadMinimaBodega}</p>
             <p class="card-text">Cantidad minima en maxima: ${this.cantidadMaximaInventario}</p>
             <p class="card-text">Poorcentaje de descuento: ${this.porcentajeDescuento}</p>
-                <p class="card-text">TOTAL a pagar: $${totalPagar}</p>
+            <p class="card-text">TOTAL a pagar: $${totalPagar}</p>
             </div>
         </div>`;
         }
@@ -177,20 +178,19 @@
         data.descripcion = document.getElementById("descripcion").value;
         data.talla = document.getElementById("talla").value;
         data.planchado = document.getElementById("planchado").value;
-        console.log(data.planchado);
         data.precioCompra = document.getElementById("precioCon").value;
         data.precioVenta = document.getElementById("precioVen").value;
         data.cantidad = document.getElementById("cantidad").value;
         data.cantidadMinimaBodega = document.getElementById("cantidadMin").value;
         data.cantidadMaximaInventario = document.getElementById("cantidadMax").value;
         data.porcentajeDescuento = document.getElementById("descuento").value;
-        if(tipo === "prenda"){
+        if(data.tipo === "prenda"){
             // Crear instancia de la clase PrendaVestir
             let prendaa = new PrendaVestir(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla, data.planchado);
             soli = prendaa.solicitarPedido();
             totalPagar = prendaa.calcularValorPagar();
             data.ganancia = prendaa.calcularPorcentajeGanancia();
-            prendaa.mostrar(soli);
+            prendaa.mostrar(soli,totalPagar);
         }else{
                 let calzado = new Calzado(data.codigo, data.descripcion, data.precioCompra, data.precioVenta, data.cantidad, data.cantidadMinimaBodega, data.cantidadMaximaInventario, data.porcentajeDescuento, data.talla);
                 soli = calzado.solicitarPedido();
@@ -201,6 +201,7 @@
             //creo un odjeto donde estan todos los elmentos del form
         console.log(ganancia)
         datos.push(data);
+        localStorage.setItem('datos', JSON.stringify(datos));
         console.log(datos);
         let mayor = 0;
         datos.map(function(element){
@@ -222,12 +223,13 @@
         <p class="card-text">Cantidad de Calzado: ${Calzado.contadorC}</p>
         <p class="card-text">Cantidad de productos que requiere pedidos </p>
         <p class="card-text">El calzado con mayor cantidad es codigo: ${mayor.codigo} su descriocion es : ${mayor.descripcion}</p>
-        <p class="card-text">El producto con mayor margen de ganancia, su codigoes  ${gana.codgio} descripcion: ${gana.descripcion} valor compra: ${gana.valorCompra} valor venta: ${gana.valorVenta} y su margen de ganancia es: ${gana.ganancia} </p>
+        <p class="card-text">El producto con mayor margen de ganancia, su codigo es  ${gana.codigo} descripcion: ${gana.descripcion} valor compra: ${gana.precioCompra} valor venta: ${gana.precioVenta} y su margen de ganancia es: ${gana.ganancia}%</p>
         </div>
-    </div>`;
+        </div>`;
         document.getElementById("resumen").innerHTML = resumen;
         document.getElementById("datoss").innerHTML += body;
         // Restablecer los valores de los campos a vacío
+
         document.getElementById("descripcion").value = "";
         document.getElementById("codigo").value = "";
         document.getElementById("planchado").value = "";
@@ -242,7 +244,7 @@
     };
     function mostrarCampoAdicional() {
         let option = document.getElementById("tipo").value;
-        let planchado = document.getElementById("planchado");
+        let planchado = document.getElementById("planchados");
         let talla = document.getElementById("talla");
         if (option === "prenda") {
             planchado.style.display = "block";
