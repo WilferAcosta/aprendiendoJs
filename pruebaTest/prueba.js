@@ -199,10 +199,8 @@
                 calzado.mostrar(soli, totalPagar);
             };
             //creo un odjeto donde estan todos los elmentos del form
-        console.log(ganancia)
         datos.push(data);
         localStorage.setItem('datos', JSON.stringify(datos));
-        console.log(datos);
         let mayor = 0;
         datos.map(function(element){
             datos.cantidad > mayor;
@@ -213,8 +211,6 @@
             datos.ganancia > gana
             gana = elem;
         });
-        console.log(gana);
-        console.log(mayor);
         resumen = `<div id="color" class="card text-dark bg-white mb-3 ms-3" style="max-width: 18rem;">
         <div class="card-header">Resumen :</div>
         <div class="card-body">
