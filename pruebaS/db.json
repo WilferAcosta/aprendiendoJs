@@ -1,0 +1,105 @@
+{
+    "reclutas": [
+        {
+            "id": 1,
+            "nombre": "wilfer",
+            "edad": 28,
+            "telefono": 3116343212,
+            "email": "w.o.a.r@hotmail.es",
+            "direccion": "calle 32 c # 35c",
+            "fechaNacimiento": "27/08/1994",
+            "numeroIdentidad": 1101693233,
+            "fechaIngreso": "27/01/2023",
+            "idTeam": 2
+        },
+        {
+            "id": 2,
+            "nombre": "orlando",
+            "edad": 20,
+            "telefono": 3116343212,
+            "email": "w.o.a.r@hotmail.es",
+            "direccion": "calle 32 c # 35c",
+            "fechaNacimiento": "27/08/1994",
+            "numeroIdentidad": 1101693233,
+            "fechaIngreso": "27/01/2023",
+            "idTeam": 1
+        },
+        {
+            "id": 3,
+            "nombre": "rodriguez",
+            "edad": 17,
+            "telefono": 3116343212,
+            "email": "w.o.a.r@hotmail.es",
+            "direccion": "calle 32 c # 35c",
+            "fechaNacimiento": "27/08/1994",
+            "identificacion": 1101693233,
+            "fechaIngreso": "27/01/2023",
+            "idTeam": 3
+        }
+    ],
+    "team": [
+        {
+            "id": 1,
+            "nombreTeam": "tema1",
+            "trainer": "carlos"
+        },
+        {
+            "id": 2,
+            "nombreTeam": "tema2",
+            "trainer": "miguel"
+        },
+        {
+            "id": 1,
+            "nombreTeam": "sergio",
+            "trainer": "carlos"
+        }
+    ],
+    "skill": [
+        {
+            "id": 1,
+            "nombre": "software"
+        },
+        {
+            "id": 2,
+            "nombre": "ser"
+        },
+        {
+            "id": 3,
+            "nombre": "Ingles"
+        }
+    ],
+    "moduloSkill": [
+        {
+            "id": 1,
+            "nombreskill": "basico",
+            "id_skill": 1
+        },
+        {
+            "id": 1,
+            "nombreskill": "Intermedio",
+            "id_skill": 2
+        },
+        {
+            "id": 1,
+            "nombreskill": "Avanzado",
+            "id_skill": 3
+        }
+    ],
+    "nota": [
+        {
+            "id_reclutas": 1,
+            "id_moduloSkill": 1,
+            "nota": 5
+        },
+        {
+            "id_reclutas": 1,
+            "id_moduloSkill": 2,
+            "nota": 5
+        },
+        {
+            "id_reclutas": 1,
+            "id_moduloSkill": 3,
+            "nota": 5
+        }
+    ]
+}

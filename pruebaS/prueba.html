@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API REST FETCH</title>
+    <link rel="stylesheet" href="./boostrap/bootstrap.min.css">
+    <style>
+        body {
+            color: white;
+            background-image: url(https://img.freepik.com/foto-gratis/cielo-estrellado_1048-11828.jpg);
+            margin: 0;
+            padding: 0;
+        }
+        .col-4 {
+        border: 4px solid white;
+        border-radius: 15px;
+    }
+        h1 {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .boton {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>CRUD API REST FETCH</h1>
+    <section class="crud">
+        <article>
+            <h2 class="crud-title">Agregar Santo</h2>
+            <form class="crud-form">
+                <input type="text" name="nombre" placeholder="nombre" required>
+                <br>
+                <input type="number" name="edad" placeholder="edad" required>
+                <br>
+                <input type="number" name="telefono" placeholder="telefono" required>
+                <br>
+                <input type="email" name="email" placeholder="email" required>
+                <br>
+                <input type="text" name="direccion" placeholder="direccion" required>
+                <br>
+                <input type="date" name="fechaNacimiento" placeholder="fechaNacimiento" required>
+                <br>
+                <input type="text" name="identidad" placeholder="identidad" required>
+                <br>
+                <input type="date" name="fechaIngreso" placeholder="fechaIngreso" required>
+                <br>
+                <input type="number" name="team" placeholder="team" required>
+                <br>
+                <input type="submit" value="Enviar">
+                <input type="hidden" name="id">
+            </form>
+        </article>
+        <article>
+            <h2>Ver Campers</h2>
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th>Direccion</th>
+                        <th>FechaNacimiento</th>
+                        <th>FechaIngreso</th>
+                        <th>Identificacion</th>
+                        <th>TEAM</th>
+                        <th>option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <template id="crud-template">
+        <tr>
+            <td class="name"></td>
+            <td class="edad"></td>
+            <td class="telefono">telefono</td>
+            <td class="email">email</td>
+            <td class="direccion">direccion</td>
+            <td class="fechanaci">fechaNacimiento</td>
+            <td class="identidad">Identificacion</td>
+            <td class="fechaIngreso">fecha ingreso</td>
+            <td class="team">team</td>
+            <td >
+                <button class="edit">Editar</button>
+                <button class="delete">Eliminar</button>
+            </td>
+        </tr>
+    </template>
+    <script src="./prueba.js"></script>
+    <script src="./boostrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba DE Seleccion</title>
+    <link rel="stylesheet" href="./boostrap/bootstrap.min.css">
+    <style>
+        body {
+            color: white;
+            background-image: url(https://img.freepik.com/foto-gratis/cielo-estrellado_1048-11828.jpg);
+            margin: 0;
+            padding: 0;
+        }
+        .col-4 {
+        border: 4px solid white;
+        border-radius: 15px;
+    }
+        h1 {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .boton {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Tower Zenith</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" style="display: inline-table;">
+                <form id="formularioAll">
+                    <div class="form-group"><label for="nombreC">Nombre: </label><input type="text" name="nombreC"
+                            id="nombreC" class="form-control" placeholder="nombre completo" aria-label="Username"
+                            aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="edad">Edad: </label><input type="number" name="edad" id="edad"
+                            class="form-control" placeholder="edad" aria-label="Username"
+                            aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="telefono">Telefono: </label><input type="number" name="talla"
+                            id="telefono" class="form-control" placeholder="telefono" aria-label="Username"
+                            aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="email">Email: </label><input type="email" name="email"
+                            id="email" class="form-control" placeholder="tower@zenith.com" aria-label="Username"
+                            aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="direccion">Direccion: </label><input type="text"
+                            name="direccion" id="direccion" class="form-control" placeholder="direccion"
+                            aria-label="Username" aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="fechaNaci">Fecha De Nacimiento: </label><input type="date"
+                            name="fechaNaci" id="fechaNaci" class="form-control" 
+                            aria-label="Username" aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="fechaIngreso">Fecha De Ingreso:
+                        </label><input type="date" name="fechaIngreso" id="fechaIngreso" class="form-control"
+                            placeholder="dd/mm/yyyy" aria-label="Username" aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="identidad">Numero De Identificacion:
+                        </label><input type="number" name="identidad" id="identidad" class="form-control"
+                            placeholder="1101693233" aria-label="Username" aria-describedby="addon-wrapping"></div>
+                    <div class="form-group"><label for="descri">Team: </label><select id="team"
+                            class="form-select" aria-label="Default select example">
+                            <option>Grupos</option>
+                            <option value="1">TEAM 1</option>
+                            <option value="2">TEAM 2</option>
+                            <option value="3">TEAM 3</option>
+                            <option value="4">TEAM 4</option>
+                        </select></div>
+                    <div class="boton">
+                        <div class="boton">
+                            <button type="button" class="btn btn-outline-secondary" onclick="guardarDatos()">Agregar
+                                Datos</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Lista de Camper</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th>Direccion</th>
+                        <th>FechaNacimiento</th>
+                        <th>FechaIngreso</th>
+                        <th>Identificacion</th>
+                        <th>TEAM</th>
+                        <th>option</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla">
+
+                </tbody>
+            </table>
+        </div>
+        
+
+
+    </div>
+    <Script src="./tomarDatos.js"></Script>
+    <script src="./boostrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
