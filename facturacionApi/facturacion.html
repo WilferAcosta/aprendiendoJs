@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Facturacion</h1>
+    <button id="cargar" onclick="cargar()">cargar</button>
+    <div class="container">
+        <div class="row">
+            <table>
+                <thead>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                </thead>
+                <tbody id="personas"></tbody>
+            </table>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                    <th>id</th>
+                    <th>Fecha</th>
+                    <th>Valor</th>
+                    <th>PersonaId</th>
+                </thead>
+                <tbody id="facturas"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./facturacion.js"></script>
+    <script src="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
