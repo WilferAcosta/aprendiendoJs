@@ -1,12 +1,20 @@
 {
   "skills": [
     {
-      "id": "1",
-      "nombre": "laura"
+      "id": "2",
+      "nombre": "orlando"
     },
     {
-      "id": "2",
+      "id": "1",
       "nombre": "wilfer"
+    },
+    {
+      "id": "3",
+      "nombre": "acosta"
+    },
+    {
+      "id": "4",
+      "nombre": "rodriguez"
     }
   ],
   "moduloskill": [],

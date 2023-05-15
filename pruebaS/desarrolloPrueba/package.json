@@ -1,0 +1,16 @@
+{
+  "name": "desarrolloprueba",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-sever --whatc db.json -p 55553"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  },
+  "devDependencies": {},
+  "description": ""
+}
