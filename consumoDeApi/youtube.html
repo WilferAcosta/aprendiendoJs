@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/css/bootstrap.min.css">
+    <style>
+        button {
+            height: 25px;
+            width: 25px;
+        }
+        img{
+            height: 50px;
+            height: 50px;
+        }
+        .lupa{
+            display: block;
+        }
+        .buscador{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="logoYouTube"><img src="https://static.vecteezy.com/system/resources/previews/009/827/521/non_2x/old-youtube-icon-free-vector.jpg" alt="Youtube"></div>
+                </div>
+                <div class="col">
+                    <div class="input-group flex-nowrap">
+                        <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar" aria-label="Username" aria-describedby="addon-wrapping">
+                        <span class="input-group-text" id="addon-wrapping"> <button onclick="buscar()"><svg type="su"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></button></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col" id="video">
+                video
+            </div>
+            <div class="col">
+                PLAYLIST
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+    <script src="./apiYouTube.js"></script>
+    <script src="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
