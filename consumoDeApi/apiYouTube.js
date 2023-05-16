@@ -10,13 +10,18 @@ const options = {
 	}
 };
 try {
+	let body= "";
 	const response = await fetch(url, options);
 	const result = await response.json();
     console.log(result);
 	const id = result.contents[1].video.videoId;
     document.getElementById("video").innerHTML = `<iframe width="100%" height="500" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    result.forEach(e =>{
+		console.log(result.contents[e+2].video.videoId);
+		body += `<iframe width="100%" height="500" src="https://www.youtube.com/embed/${result.contents[e+2].video.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+	});
+	document.getElementById("body").innerHTML += body ;
     
-    console.log(id);
 } catch (error) {
 	console.error(error);
 }
