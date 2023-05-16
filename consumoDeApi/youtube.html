@@ -8,19 +8,21 @@
     <title>Youtube</title>
     <link rel="stylesheet" href="/WilferAcostaJS-master/WilferAcostaJS/instalacionBootstrap/css/bootstrap.min.css">
     <style>
-        button {
-            height: 25px;
-            width: 25px;
+        body{
+            background-color: black;
+            color: white;
+            margin-top: 15px;
         }
         img{
             height: 50px;
-            height: 50px;
-        }
-        .lupa{
-            display: block;
+            height: 62pxpx;
+            border-radius: 25px;
         }
         .buscador{
             margin-top: 10px;
+        }
+        .row{
+            margin-top: 20px;
         }
         
     </style>
@@ -30,10 +32,10 @@
     <nav>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-2">
                     <div id="logoYouTube"><img src="https://static.vecteezy.com/system/resources/previews/009/827/521/non_2x/old-youtube-icon-free-vector.jpg" alt="Youtube"></div>
                 </div>
-                <div class="col">
+                <div class="col-10">
                     <div class="input-group flex-nowrap">
                         <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar" aria-label="Username" aria-describedby="addon-wrapping">
                         <span class="input-group-text" id="addon-wrapping"> <button onclick="buscar()"><svg type="su"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -48,16 +50,17 @@
         <div class="row">
             <div class="col-8" id="video">
                 <iframe width="100%" height="500" src="https://www.youtube.com/embed/HjOOGujV-LU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <h1><img src="" alt="">hola mundo</h1>
             </div>
             <div class="col-4">
-                <div id="description">
-
+                <div id="comentarios">
+                    comentarios
                 </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-8 d-flex" id="body">
+            <div class="col d-flex" id="body">
                 <div>
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/XNT8hf49HCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -67,9 +70,12 @@
                 <div>
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/XNT8hf49HCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-            </div>
-            <div class="col-4">
-
+                <div>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/XNT8hf49HCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/XNT8hf49HCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
