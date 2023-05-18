@@ -70,7 +70,7 @@ try {
 	console.log(result);
 	result.contents.forEach(e=>{
 		console.log(e)
-		body3 += `<div><iframe width="280px" height="500" src="https://www.youtube.com/embed/${e.video.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`
+		body3 += `<div><iframe width="280px" height="280" src="https://www.youtube.com/embed/${e.video.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`
 		console.log(body3);
 	});
 	document.getElementById("body").innerHTML = body3;
