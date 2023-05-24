@@ -51,7 +51,7 @@ class LapizMecanico extends Lapiz{
     }
 }
 /**
- * creamos la instancia de la clase padre Lapiz.
+ * creamos la instancia de la clase padre LapizMecanico.
  */
 let meca = new LapizMecanico({});
 meca.setMina = "aluminio"
