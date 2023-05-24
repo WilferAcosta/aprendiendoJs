@@ -77,7 +77,7 @@ function enviar(){
     let genero = document.getElementById("genero").value;
     let carrera = document.getElementById("carrera").value;
     estudiante1 = new Estudiante(nombre,edad,genero,carrera);
-    alert("El estudiante es mayor de edad :  "+estudiante1.esMayorDeEdad());
+    alert("El estudiante es mayor de edad :  "+Estudiante.esMayorDeEdad(estudiante1.getEdad));
     alert(estudiante1.saludar());
     alert(estudiante1.estudiar());
 }
