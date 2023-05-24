@@ -39,11 +39,26 @@ class Lapiz{
     }
     
 }
+/** creamos la clase hija que hereda de la clase padre Lapiz */
+class LapizMecanico extends Lapiz{
+    constructor(){
+        /**usamos super para traer los atributos de la clase padre */
+        super({})
+    }
+    /** creamos el polimorfismo de la clase hija */
+    static afilar(p1){
+        return `la mina de ${p1} no se puede afilar`;
+    }
+}
 /**
  * creamos la instancia de la clase padre Lapiz.
  */
-const lapiz1 = new Lapiz({tamaño: "10cm"});
-console.log(Lapiz.afilar(lapiz1.getMina()));
+let meca = new LapizMecanico({});
+meca.setMina = "aluminio"
+console.log(Lapiz.afilar(meca.getMina()));
+
+// const lapiz1 = new Lapiz({tamaño: "10cm"});
+// console.log(Lapiz.afilar(lapiz1.getMina()));
 
 
 
