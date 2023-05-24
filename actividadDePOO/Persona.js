@@ -6,7 +6,7 @@ class Persona{
     #edad
     #genero
     // creo un funtion statica.
-    static esMayorDeEdad;
+    
     // creo el constructor y paso los atributos como argumentos.
     constructor(nombre,edad,genero){
         this.#nombre = nombre;
@@ -36,8 +36,8 @@ class Persona{
     saludar(){
         return `Bienvenido ${this.#nombre}`;
     }
-    esMayorDeEdad(){
-        return this.#edad >= 18 ? true : false;
+    static esMayorDeEdad(edad){
+        return edad>= 18 ? true : false;
     }
 }
 //creo instancia de la clase padre Persona
