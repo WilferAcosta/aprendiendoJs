@@ -49,8 +49,8 @@ class Perro extends Animal{
     get getRaza(){
         return this.#raza;
     }
-    estudiar(){
-        return `Esta estudiando la carrera ${this.#carrera}`;
+    moverCola(){
+        return `El perro esta moviendo la cola`;
     }
 }
 
@@ -63,12 +63,10 @@ let estudiantes = [];
 function enviar(){
     let nombre = document.getElementById("nombre").value;
     let edad = document.getElementById("edad").value;
-    let genero = document.getElementById("genero").value;
-    let carrera = document.getElementById("carrera").value;
-    estudiante1 = new Estudiante({nombre,edad,genero,carrera});
-    alert("El estudiante es mayor de edad :  "+estudiante1.esMayorDeEdad());
-    alert(estudiante1.saludar());
-    alert(estudiante1.estudiar());
+    let raza = document.getElementById("raza").value;
+    perro1 = new Perro({nombre,edad,raza});
+    alert(`El animal se llama ${this.nombre}`);
+    alert(perro1.moverCola());
 }
 
 
