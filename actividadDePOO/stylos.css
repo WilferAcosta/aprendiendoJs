@@ -1,4 +1,22 @@
-body{
-    background-image: url('https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg');
+body,html{
+    background-image: url('https://images2.alphacoders.com/130/1306410.png');
     color: white;
+    height: 100%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+form{
+    display: table-caption;
+    border: 1px solid rgb(254, 254, 254);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 350px;
+    padding: 20px;
+    
 }

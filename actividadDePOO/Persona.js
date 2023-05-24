@@ -65,10 +65,18 @@ class Estudiante extends Persona{
         return `Esta estudiando la carrera ${this.#carrera}`;
     }
 }
-//creo una instancia de la clase hija Estudiante
-estudiante1 = new Estudiante("Orlando",29,"M","Ingeneria De Sistemas");
-console.log(estudiante1);
-console.log(estudiante1.saludar());
-console.log(estudiante1.estudiar());
-console.log(estudiante1.esMayorDeEdad());
+
+
+let estudiantes = [];
+function enviar(){
+    let nombre = document.getElementById("nombre").value;
+    let edad = document.getElementById("edad").value;
+    let genero = document.getElementById("genero").value;
+    let carrera = document.getElementById("carrera").value;
+    estudiante1 = new Estudiante(nombre,edad,genero,carrera);
+    alert("El estudiante es mayor de edad :  "+estudiante1.esMayorDeEdad());
+    alert(estudiante1.saludar());
+    alert(estudiante1.estudiar());
+}
+
 
