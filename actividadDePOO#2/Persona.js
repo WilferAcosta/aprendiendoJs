@@ -1,5 +1,4 @@
 //Autor : Wilfer Orlando Acosta Rodriguez
-
 // creao la clase padre Persona
 class Persona{
     //creo los atribtos con sus modificador de acceso.
@@ -15,22 +14,22 @@ class Persona{
         this.#genero = genero;
     }
     //creo el encapsulamiento de mis atributos con los metodos get y set
-    setNombre(nombre){
+    set setNombre(nombre){
         this.#nombre = nombre;
     }
-    getNombre(){
+    get getNombre(){
         return this.#nombre;
     }
-    setEdad(edad){
+    set setEdad(edad){
         this.#edad = edad;
     }
-    getEdad(){
+    get getEdad(){
         return this.#edad;
     }
-    setGenero(genero){
+    set setGenero(genero){
         this.#genero = genero;
     }
-    getGenero(){
+    get getGenero(){
         return this.#genero;
     }
     //creo los metodos
@@ -55,10 +54,10 @@ class Estudiante extends Persona{
         super(nombre,edad,genero);
         this.#carrera = carrera;
     }
-    setCarrera(carrera){
+    set setCarrera(carrera){
         this.#carrera = carrera;
     }
-    getCarrera(){
+    get getCarrera(){
         return this.#carrera;
     }
     estudiar(){

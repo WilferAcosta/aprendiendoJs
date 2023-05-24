@@ -17,6 +17,7 @@ class Lapiz{
         this.tamaño= tamaño;
         this.#material = material;
         this.#mina= mina;
+        
     };
     /**
      * se crea el encapsulamiento de las atributos privados . 
@@ -33,13 +34,16 @@ class Lapiz{
     getMina(){
         return this.#mina;
     }
+    static afilar(p1){
+        return `la mina de ${p1}`;
+    }
     
 }
 /**
  * creamos la instancia de la clase padre Lapiz.
  */
 const lapiz1 = new Lapiz({tamaño: "10cm"});
-console.log(lapiz1);
+console.log(Lapiz.afilar(lapiz1.getMina()));
 
 
 
