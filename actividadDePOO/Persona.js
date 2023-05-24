@@ -66,7 +66,11 @@ class Estudiante extends Persona{
     }
 }
 
-
+document.addEventListener('click',(e)=>{
+    if(e.target.id=='sumit'){
+        enviar();
+    }
+})
 let estudiantes = [];
 function enviar(){
     let nombre = document.getElementById("nombre").value;
