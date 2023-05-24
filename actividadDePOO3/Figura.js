@@ -72,8 +72,12 @@ function enviar(){
     let color= document.getElementById("color").value;
     let area = document.getElementById("area").value;
     let raza = document.getElementById("raza").value;
+    let circulo = document.getElementById("circulo");
+    let rectangulo = document.getElementById("rectangulo");
     switch(area){
         case "circulo":
+            circulo.style.display="block";
+
             
             break;
         case "rectangulo":
