@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./stylos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-3 ">
+            <di class="col">
+                <h1 style="text-align: center;">Areas</h1>
+                <form action="">
+                    <div class="mb-3 row">
+                        <label for="color" class="col-sm-2 col-form-label">Color</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="color">
+                        </div>
+                    </div>
+                    <br>
+                    <select id="area" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione la Figura</option>
+                        <option value="rectangulo">rectangulo</option>
+                        <option value="circulo">circulo</option>
+                    </select>
+                    <br>
+                    <div id="circulo" style="display: none;">
+                        <div class="mb-3 row">
+                            <label for="radio" class="col-sm-2 col-form-label">Radio </label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="radio">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="rectangulo" style="display: none;">
+                        <div class="mb-3 row">
+                            <label for="largo" class="col-sm-2 col-form-label">largo </label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="largo">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="ancho" class="col-sm-2 col-form-label">Ancho </label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="ancho">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" id="sumit" class="btn btn-outline-secondary ">Enviar</button>
+                    </div>
+                </form>
+            </di>
+        </div>
+    </div>
+    <script src="./Figura.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
