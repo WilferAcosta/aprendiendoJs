@@ -1,4 +1,4 @@
-    class Producto {
+        class Producto {
         #codigo;
         #descripcion;
         #precioCompra;
