@@ -50,16 +50,22 @@ class Coche extends Vehiculo{
         }
 }
 const boton = document.querySelector("#sumit");
-boton.addEventListener('click' ,function(e){
+boton.addEventListener('click', function(e) {
     e.preventDefault();
+
     let marca = document.getElementById("marca").value;
     let modelo = document.getElementById("modelo").value;
     let velocidad = document.getElementById("velocidad").value;
     let combustible = document.getElementById("combustible").value;
     const coche1 = new Coche({marca:marca,modelo:modelo,velocidad:velocidad,combustible:combustible});
-    alert(coche1.acelerar())
-    alert(Vehiculo.convertirKmHEnMph(coche1.getVelocidad));
+
+    console.log(coche1.acelerar());
+    console.log(Vehiculo.convertirKmHEnMph(coche1.getVelocidad));
+
+  // Mostrar el modal
+    $('.modal').modal('show');
 });
+
 
 
 
