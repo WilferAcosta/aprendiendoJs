@@ -66,28 +66,24 @@ document.addEventListener("DOMContentLoaded", function() {
     let circulo = document.getElementById("circulo");
     let rectangulo = document.getElementById("rectangulo");
     let submitButton = document.getElementById("submit");
-  
-    select.addEventListener("change", function() {
-      let selectedOption = select.value;
-  
-      if (selectedOption === "circulo") {
+select.addEventListener("change", function() {
+        let selectedOption = select.value;
+        if (selectedOption === "circulo") {
         circulo.style.display = "block";
         rectangulo.style.display = "none";
-      } else if (selectedOption === "rectangulo") {
+        } else if (selectedOption === "rectangulo") {
         circulo.style.display = "none";
         rectangulo.style.display = "block";
-      } else {
+        } else {
         circulo.style.display = "none";
         rectangulo.style.display = "none";
-      }
+        }
     });
-  
+
     submitButton.addEventListener("click", function(event) {
-      event.preventDefault();
-  
-      let color = document.getElementById("color").value;
-  
-      if (select.value === "circulo") {
+        event.preventDefault();
+        let color = document.getElementById("color").value;
+        if (select.value === "circulo") {
         let radio = document.getElementById("radio").value;
         let circuloInstance = new Circulor(color, "Círculo", radio);
         let area = circuloInstance.calcularArea();
@@ -96,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Color: " + color);
         console.log("Área: " + area);
         // Realiza acciones con la instancia de circuloInstance y el área calculada
-      } else if (select.value === "rectangulo") {
+        } else if (select.value === "rectangulo") {
         let largo = document.getElementById("largo").value;
         let ancho = document.getElementById("ancho").value;
         let rectanguloInstance = new Rectangulo(color, "Rectángulo", largo, ancho);
@@ -107,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Color: " + color);
         console.log("Área: " + area);
         // Realiza acciones con la instancia de rectanguloInstance y el área calculada
-      }
+        }
+        
     });
-  });
+});
